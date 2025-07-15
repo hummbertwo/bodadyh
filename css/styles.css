@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #fff;
+  color: #222;
+  overflow-x: hidden;
+}
+
+section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease-in-out;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+h1, h2, h3 {
+  margin: 1rem 0 0.5rem;
+  text-align: center;
+}
+
+p, .countdown, .info-box {
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.btn {
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.divider {
+  width: 80%;
+  height: 2px;
+  background: #eee;
+  margin: 2rem auto;
+}
+
+input, button {
+  padding: 10px;
+  margin: 8px 0;
+  width: 100%;
+  max-width: 400px;
+}
+
+.formulario, .resultado {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invitación Boda</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <section>
+    <img src="img/R.jpg" alt="Foto pareja" />
+    <h1>Nos casamos</h1>
+    <h2>Lucía & Juan</h2>
+    <p>23.11.2025</p>
+  </section>
+
+  <section>
+    <h2>FALTAN:</h2>
+    <div class="countdown" id="countdown"></div>
+    <p>Te esperamos para celebrar este momento juntos</p>
+
+    <label for="codigo">Ingresa tu código de invitación:</label>
+    <input type="text" id="codigo" placeholder="Ej: COD1010" />
+    <button onclick="verificarCodigo()">Verificar</button>
+
+    <div class="formulario hidden" id="formulario">
+      <p id="mensajeEntradas"></p>
+      <label for="nombre">Tu nombre:</label>
+      <input type="text" id="nombre" placeholder="Ej: Juan Pérez" />
+      <button onclick="confirmar()">Confirmar asistencia</button>
+    </div>
+
+    <div class="resultado hidden" id="resultado"></div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <h2>Ceremonia</h2>
+    <p>20:30 hrs - Parroquia Nuestra Señora Lourdes</p>
+    <a href="#" class="btn">CÓMO LLEGAR</a>
+  </section>
+
+  <section>
+    <h2>Fiesta</h2>
+    <p>21:30 hrs - Salón XXXX</p>
+    <a href="#" class="btn">CÓMO LLEGAR</a>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <img src="foto2.jpg" alt="Pareja de pie" />
+    <h2>Instagram</h2>
+    <p>Nos encantaría que compartas tus fotos en Instagram con el hashtag:</p>
+    <a href="#" class="btn">#BODALUJ2025</a>
+  </section>
+
+  <section>
+    <h2>Playlist</h2>
+    <p>La fiesta la haces tú. ¡Agrega tus canciones favoritas a nuestra playlist colaborativa!</p>
+    <a href="#" class="btn">AGREGAR CANCIONES</a>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
