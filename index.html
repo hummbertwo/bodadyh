@@ -201,6 +201,14 @@
       btn.title = "Reproducir canción";
       isPlaying = false;
     });
+
+      window.onload = () => {
+    const audio = document.getElementById('weddingSong');
+    audio.play().catch(() => {
+      // Aquí puedes mostrar un mensaje o activar el botón play manualmente
+      console.log("Autoplay bloqueado, espera interacción.");
+    });
+  };
   </script>
 </body>
 </html>
