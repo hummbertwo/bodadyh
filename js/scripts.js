@@ -31,12 +31,12 @@ updateCountdown();
 const sheetsBestURL = "https://api.sheetbest.com/sheets/9ca1ebfc-c2e0-4a0c-89dc-35a8a46da598";
 
 const codigos = {
-  "COD1010": 1,
-  "COD1020": 2,
-  "COD1030": 3,
-  "COD1040": 4,
-  "COD1050": 5,
-  "COD1060": 6
+  "ELITE": 1,
+  "DELUXE": 2,
+  "GOLD": 3,
+  "PLATINUM": 4,
+  "DIAMOND": 5,
+  "ROYAL": 6
 };
 
 let codigoActual = null;
