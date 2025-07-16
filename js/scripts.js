@@ -40,6 +40,7 @@ const codigos = {
 };
 
 let codigoActual = null;
+let entradasDisponibles = 0;
 
 function verificarCodigo() {
   const input = document.getElementById("codigo").value.trim().toUpperCase();
@@ -53,6 +54,7 @@ function verificarCodigo() {
 
   if (entradas) {
     codigoActual = input;
+    entradasDisponibles = entradas;
     formulario.classList.remove("hidden");
     mensaje.textContent = `Este código tiene asignadas ${entradas} entrada(s).`;
   } else {
@@ -63,12 +65,18 @@ function verificarCodigo() {
 
 async function confirmar() {
   const nombre = document.getElementById("nombre").value.trim();
+  const cantidad = parseInt(document.getElementById("cantidad").value.trim(), 10);
+  const resultado = document.getElementById("resultado");
+
   if (!nombre) {
     alert("Por favor, ingresa tu nombre.");
     return;
   }
 
-  const entradas = codigos[codigoActual];
+  if (!cantidad || cantidad < 1 || cantidad > entradasDisponibles) {
+    alert(`Por favor, ingresa un número válido de personas (máx. ${entradasDisponibles}).`);
+    return;
+  }
 
   try {
     await fetch(sheetsBestURL, {
@@ -79,15 +87,14 @@ async function confirmar() {
       body: JSON.stringify({
         codigo: codigoActual,
         nombre: nombre,
-        entradas: entradas,
+        cantidad: cantidad,
         timestamp: new Date().toISOString()
       })
     });
 
-    const resultado = document.getElementById("resultado");
     resultado.innerHTML = `
       <h3>¡Gracias por confirmar, ${nombre}!</h3>
-      <p>Tu código <strong>${codigoActual}</strong> tiene <strong>${entradas}</strong> entrada(s) asignadas.</p>
+      <p>Se registraron <strong>${cantidad}</strong> persona(s) con el código <strong>${codigoActual}</strong>.</p>
       <a href="https://www.facebook.com/reel/1469677640358847" target="_blank">
         <button style="padding:10px 20px; margin-top:10px;">Más Información</button>
       </a>
