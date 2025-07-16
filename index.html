@@ -6,14 +6,115 @@
   <title>Invitación Boda</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Hero video container */
+    .hero-video-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    .hero-video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .hero-video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.3);
+      z-index: 1;
+      border-radius: 20px;
+    }
+
+    .hero-text-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      z-index: 2;
+      padding: 1rem;
+    }
+
+    .hero-text-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text-content h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-text-content p {
+      font-size: 1.5rem;
+    }
+
+    /* Play/Pause button */
+    .audio-play-button {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 3;
+      transition: background-color 0.3s ease;
+    }
+    .audio-play-button:hover {
+      background: rgba(255, 255, 255, 1);
+    }
+    .audio-play-button svg {
+      width: 24px;
+      height: 24px;
+      fill: #000;
+    }
+  </style>
 </head>
 <body>
 
-  <section>
-    <img src="img/132190834_3907916239232387_3954688895331736432_n.jpg" alt="Foto pareja" />
-    <h1>Nos casamos</h1>
-    <h2>Daniela & Humberto</h2>
-    <p>01.02.2026</p>
+  <!-- HERO CON VIDEO -->
+  <section class="hero-video-container">
+    <video
+      src="img/video1.mp4"
+      loop
+      muted
+      poster="public/hero-bg.png"
+      preload="auto"
+      autoplay
+      playsinline
+    ></video>
+    <div class="hero-video-overlay"></div>
+    <div class="hero-text-content">
+      <h1>Nos casamos</h1>
+      <h2>Daniela & Humberto</h2>
+      <p>01.02.2026</p>
+    </div>
+
+    <!-- Botón play/pause para canción -->
+    <div class="audio-play-button" id="audioPlayBtn" title="Reproducir canción">
+      <!-- Ícono play por defecto -->
+      <svg id="iconPlayPause" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z" />
+      </svg>
+    </div>
+
+    <!-- Audio oculto -->
+    <audio id="weddingSong" src="img/Love On The Brain.mp3" preload="auto"></audio>
   </section>
 
   <section>
@@ -71,5 +172,35 @@
   </section>
 
   <script src="js/scripts.js"></script>
+  <script>
+    const audio = document.getElementById('weddingSong');
+    const btn = document.getElementById('audioPlayBtn');
+    const icon = document.getElementById('iconPlayPause');
+
+    const playIconPath = "M8 5v14l11-7z"; // triángulo play
+    const pauseIconPath = "M6 19h4V5H6v14zm8-14v14h4V5h-4z"; // barras pause
+
+    let isPlaying = false;
+
+    btn.addEventListener('click', () => {
+      if (!isPlaying) {
+        audio.play();
+        icon.querySelector('path').setAttribute('d', pauseIconPath);
+        btn.title = "Pausar canción";
+        isPlaying = true;
+      } else {
+        audio.pause();
+        icon.querySelector('path').setAttribute('d', playIconPath);
+        btn.title = "Reproducir canción";
+        isPlaying = false;
+      }
+    });
+
+    audio.addEventListener('ended', () => {
+      icon.querySelector('path').setAttribute('d', playIconPath);
+      btn.title = "Reproducir canción";
+      isPlaying = false;
+    });
+  </script>
 </body>
 </html>
