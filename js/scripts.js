@@ -12,7 +12,7 @@ sections.forEach(section => observer.observe(section));
 
 // Countdown script
 const countdown = document.getElementById("countdown");
-const targetDate = new Date("2025-11-23T00:00:00").getTime();
+const targetDate = new Date("2026-02-01T08:00:00").getTime();
 
 function updateCountdown() {
   const now = new Date().getTime();
