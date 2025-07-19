@@ -5,85 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Invitación Boda</title>
   <link rel="stylesheet" href="css/styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    /* Hero video container */
-    .hero-video-container {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-      border-radius: 20px;
-    }
-
-    .hero-video-container video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 20px;
-    }
-
-    .hero-video-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.3);
-      z-index: 1;
-      border-radius: 20px;
-    }
-
-    .hero-text-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: white;
-      z-index: 2;
-      padding: 1rem;
-    }
-
-    .hero-text-content h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero-text-content h2 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-text-content p {
-      font-size: 1.5rem;
-    }
-
-    /* Play/Pause button */
-    .audio-play-button {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      background: rgba(255, 255, 255, 0.8);
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 3;
-      transition: background-color 0.3s ease;
-    }
-    .audio-play-button:hover {
-      background: rgba(255, 255, 255, 1);
-    }
-    .audio-play-button svg {
-      width: 24px;
-      height: 24px;
-      fill: #000;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -100,11 +22,15 @@
     ></video>
     <div class="hero-video-overlay"></div>
     <div class="hero-text-content">
-      <h1>Nos casamos</h1>
-      <h2>Daniela & Humberto</h2>
+      <h1 class="focus-in-contract-bck">Daniela & Humberto</h1>
+      <h2>Nos Casamos</h2>
       <p>01.02.2026</p>
     </div>
-
+    <div class="scroll-indicator">
+  <svg viewBox="0 0 24 24" class="scroll-icon">
+     <path d="M12 16.5l-8-8 1.41-1.41L12 13.67l6.59-6.58L20 8.5z" />
+  </svg>
+</div>
     <!-- Botón play/pause para canción -->
     <div class="audio-play-button" id="audioPlayBtn" title="Reproducir canción">
       <!-- Ícono play por defecto -->
@@ -114,12 +40,21 @@
     </div>
 
     <!-- Audio oculto -->
-    <audio id="weddingSong" src="img/Love On The Brain.mp3" preload="auto" autoplay></audio>></audio>
+    <audio id="weddingSong" src="img/Love On The Brain.mp3" preload="auto" autoplay></audio>
+    
   </section>
 
   <section>
-    <h2>FALTAN:</h2>
+   <h2>Mensaje de los Novios</h2>
+
+
+  </section>
+  <section>
+   <h2>FALTAN:</h2>
     <div class="countdown" id="countdown"></div>
+  </section>
+  <section>
+    <h2>Confirmar Asistencia</h2>
     <p>Te esperamos para celebrar este momento juntos</p>
 
     <label for="codigo">Ingresa tu código de invitación:</label>
@@ -147,13 +82,13 @@
     <h2>Ceremonia</h2>
     <p>3:00 hrs - Templo Santo Domingo Savio</p>
     <img src="img/" alt="Pareja de pie" />
-    <a href="#" class="btn">CÓMO LLEGAR</a>
+    <a href="https://maps.app.goo.gl/mxoMxy9c2A38BK9NA" class="btn">CÓMO LLEGAR</a>
   </section>
 
   <section>
     <h2>Fiesta</h2>
     <p>7:30 hrs - Salón Elite Eventos Black</p>
-    <a href="#" class="btn">CÓMO LLEGAR</a>
+    <a href="https://maps.app.goo.gl/cmQbFhKMeAZL4BSg7" class="btn">CÓMO LLEGAR</a>
   </section>
 
   <div class="divider"></div>
@@ -172,43 +107,5 @@
   </section>
 
   <script src="js/scripts.js"></script>
-  <script>
-    const audio = document.getElementById('weddingSong');
-    const btn = document.getElementById('audioPlayBtn');
-    const icon = document.getElementById('iconPlayPause');
-
-    const playIconPath = "M8 5v14l11-7z"; // triángulo play
-    const pauseIconPath = "M6 19h4V5H6v14zm8-14v14h4V5h-4z"; // barras pause
-
-    let isPlaying = false;
-
-    btn.addEventListener('click', () => {
-      if (!isPlaying) {
-        audio.play();
-        icon.querySelector('path').setAttribute('d', pauseIconPath);
-        btn.title = "Pausar canción";
-        isPlaying = true;
-      } else {
-        audio.pause();
-        icon.querySelector('path').setAttribute('d', playIconPath);
-        btn.title = "Reproducir canción";
-        isPlaying = false;
-      }
-    });
-
-    audio.addEventListener('ended', () => {
-      icon.querySelector('path').setAttribute('d', playIconPath);
-      btn.title = "Reproducir canción";
-      isPlaying = false;
-    });
-
-      window.onload = () => {
-    const audio = document.getElementById('weddingSong');
-    audio.play().catch(() => {
-      // Aquí puedes mostrar un mensaje o activar el botón play manualmente
-      console.log("Autoplay bloqueado, espera interacción.");
-    });
-  };
-  </script>
 </body>
 </html>

@@ -6,9 +6,69 @@ const observer = new IntersectionObserver(entries => {
       entry.target.classList.add('visible');
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.3 });
 
 sections.forEach(section => observer.observe(section));
+
+// Audio
+const audio = document.getElementById('weddingSong');
+const btn = document.getElementById('audioPlayBtn');
+const icon = document.getElementById('iconPlayPause');
+
+const playIconPath = "M8 5v14l11-7z"; // triángulo play
+const pauseIconPath = "M6 19h4V5H6v14zm8-14v14h4V5h-4z"; // barras pause
+
+let isPlaying = false;
+
+// Intentar reproducir en cuanto se carga
+window.onload = () => {
+  audio.play().then(() => {
+    icon.querySelector('path').setAttribute('d', pauseIconPath);
+    btn.title = "Pausar canción";
+    isPlaying = true;
+  }).catch(() => {
+    console.log("Autoplay bloqueado, esperando interacción.");
+  });
+};
+
+// Intentar reproducir si el usuario hace clic en cualquier parte EXCEPTO en el botón
+document.addEventListener('click', (e) => {
+  if (!isPlaying && !btn.contains(e.target)) {
+    audio.play().then(() => {
+      icon.querySelector('path').setAttribute('d', pauseIconPath);
+      btn.title = "Pausar canción";
+      isPlaying = true;
+    }).catch(() => {
+      console.log("Reproducción aún bloqueada.");
+    });
+  }
+});
+
+// Botón play/pause
+btn.addEventListener('click', () => {
+  if (!isPlaying) {
+    audio.play();
+    icon.querySelector('path').setAttribute('d', pauseIconPath);
+    btn.title = "Pausar canción";
+    isPlaying = true;
+  } else {
+    audio.pause();
+    icon.querySelector('path').setAttribute('d', playIconPath);
+    btn.title = "Reproducir canción";
+    isPlaying = false;
+  }
+});
+
+// Cuando termina la canción
+audio.addEventListener('ended', () => {
+  icon.querySelector('path').setAttribute('d', playIconPath);
+  btn.title = "Reproducir canción";
+  isPlaying = false;
+});
+
+
+
+
 
 // Countdown script
 const countdown = document.getElementById("countdown");
