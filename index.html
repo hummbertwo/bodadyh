@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Invitación Boda</title>
   <link rel="stylesheet" href="css/styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=League+Spartan:wght@100..900&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -45,14 +45,40 @@
   </section>
 
   <section>
-   <h2>Mensaje de los Novios</h2>
+   <h2 class="animar">Mensaje de los Novios</h2>
 
 
   </section>
-  <section>
-   <h2>FALTAN:</h2>
-    <div class="countdown" id="countdown"></div>
-  </section>
+
+
+  <section class="fondo-contador">
+  <img src="img/R.jpg" alt="Fondo" class="bg-image" />
+  
+  <div class="esp1-text-content">
+    <h2>FALTAN:</h2>
+  </div>
+  
+  <div class="countdown" id="countdown">
+    <div class="time-box">
+      <span class="number" id="days">00</span>
+      <span class="label">Días</span>
+    </div>
+    <div class="time-box">
+      <span class="number" id="hours">00</span>
+      <span class="label">Horas</span>
+    </div>
+    <div class="time-box">
+      <span class="number" id="minutes">00</span>
+      <span class="label">Minutos</span>
+    </div>
+    <div class="time-box">
+      <span class="number" id="seconds">00</span>
+      <span class="label">Segundos</span>
+    </div>
+  </div>
+</section>
+
+
   <section>
     <h2>Confirmar Asistencia</h2>
     <p>Te esperamos para celebrar este momento juntos</p>

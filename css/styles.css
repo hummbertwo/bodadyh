@@ -8,8 +8,7 @@
 }
 
 body {
-  background: #fff;
-  color: #222;
+  background: #EFE1D0;
   overflow-x: hidden;
 }
 
@@ -34,7 +33,6 @@ section.visible {
 img {
   width: 100%;
   max-width: 400px;
-  border-radius: 10px;
   margin-bottom: 1rem;
 }
  
@@ -137,7 +135,7 @@ p, .countdown, .info-box {
 }
 
 .hero-text-content h1 {
-   font-family: "Imperial Script", cursive;
+  font-family: "Tangerine", cursive;
   font-weight: 400;
   font-style: normal;
   font-size: 4rem;
@@ -149,7 +147,7 @@ p, .countdown, .info-box {
   font-optical-sizing: auto;
   font-weight: 100;
   font-style: normal;
-  font-size: 2rem;
+  font-size: 1rem;
   margin-bottom: 0.5rem;
 }
 
@@ -157,7 +155,16 @@ p, .countdown, .info-box {
    font-family: "Imperial Script", cursive;
   font-weight: 400;
   font-style: normal;
-  font-size: 1.5rem;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.esp1-text-content{
+   font-family: "Imperial Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  font-size: 1rem;
 }
 
     /* Play/Pause button */
@@ -185,13 +192,68 @@ p, .countdown, .info-box {
   fill: #000;
 }
 
+.fondo-contador {
+  position: relative;
+  height: 100vh; /* Toma todo el alto del dispositivo */
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.6;
+}
+
 .countdown {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
   gap: 1rem;
-  font-size: 1.2rem;
-  font-weight: bold;
+  justify-content: center;
+  z-index: 1;
 }
+
+.time-box {
+  /* Sin fondo ni padding */
+  border-radius: 0; /* opcional, ya que no hay fondo */
+  min-width: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centra el número */
+}
+
+.number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.label {
+  font-size: 1rem;
+  align-self: center; /* etiqueta centrada debajo del número */
+}
+
+.esp1-text-content {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  z-index: 1;
+}
+
+
+
+
 
 .btn {
   background: #000;
@@ -241,10 +303,10 @@ input, button {
 @-webkit-keyframes focus-in-contract-bck {
   0% {
     letter-spacing: 1em;
-    -webkit-transform: translateZ(300px);
-            transform: translateZ(300px);
-    -webkit-filter: blur(12px);
-            filter: blur(12px);
+    -webkit-transform: translateZ(800px);
+            transform: translateZ(800px);
+    -webkit-filter: blur(48px);
+            filter: blur(48px);
     opacity: 0;
   }
   100% {
@@ -258,10 +320,10 @@ input, button {
 @keyframes focus-in-contract-bck {
   0% {
     letter-spacing: 1em;
-    -webkit-transform: translateZ(300px);
-            transform: translateZ(300px);
-    -webkit-filter: blur(12px);
-            filter: blur(12px);
+    -webkit-transform: translateZ(800px);
+            transform: translateZ(800px);
+    -webkit-filter: blur(48px);
+            filter: blur(48px);
     opacity: 0;
   }
   100% {
@@ -272,3 +334,5 @@ input, button {
     opacity: 1;
   }
 }
+
+
