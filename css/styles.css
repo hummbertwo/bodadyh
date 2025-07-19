@@ -1,3 +1,6 @@
+/* ========================================
+   RESET Y TIPOGRAFÍA
+======================================== */
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +15,9 @@ body {
   overflow-x: hidden;
 }
 
+/* ========================================
+   SECCIÓN GENÉRICA
+======================================== */
 section {
   width: 100%;
   min-height: 100vh;
@@ -30,56 +36,50 @@ section.visible {
   transform: translateY(0);
 }
 
+/* ========================================
+   TEXTOS GENERALES
+======================================== */
+h1 {
+  font-family: "Imperial Script", cursive;
+  font-weight: 400;
+  text-align: center;
+  margin: 1rem 0 0.5rem;
+}
+
+h2, h3 {
+  font-weight: 900;
+  text-align: center;
+  margin: 1rem 0 0.5rem;
+}
+
+p, .countdown, .info-box {
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+/* ========================================
+   IMÁGENES
+======================================== */
 img {
   width: 100%;
   max-width: 400px;
   margin-bottom: 1rem;
 }
- 
-/* TEXTOS GENERALES*/
-h1 {
-  font-family: "Imperial Script", cursive;
-  font-weight: 400;
-  font-style: normal;
-  margin: 1rem 0 0.5rem;
-  text-align: center;
-}
 
-h2, h3 {
-  font-family: "League Spartan", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 900;
-  font-style: normal;
-  margin: 1rem 0 0.5rem;
-  text-align: center;
-}
-
-p, .countdown, .info-box {
-  font-family: "League Spartan", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  text-align: center;
-  margin: 0.5rem 0;
-}
-
-
-/* Hero video container */
+/* ========================================
+   HERO: VIDEO Y OVERLAY
+======================================== */
 .hero-video-container {
   position: relative;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  border-radius: 0;
-  margin: 0;
-  padding: 0;
 }
 
 .hero-video-container video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 0;
 }
 
 .hero-video-overlay {
@@ -90,7 +90,6 @@ p, .countdown, .info-box {
   height: 100%;
   background: rgba(0,0,0,0.3);
   z-index: 1;
-  border-radius: 0px;
 }
 
 .scroll-indicator {
@@ -109,7 +108,7 @@ p, .countdown, .info-box {
   opacity: 0.8;
 }
 
-/* Animación */
+/* Animación de scroll */
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
     transform: translateX(-50%) translateY(0);
@@ -122,7 +121,9 @@ p, .countdown, .info-box {
   }
 }
 
-/* TEXTOS Diseñar*/
+/* ========================================
+   HERO: TEXTOS
+======================================== */
 .hero-text-content {
   position: absolute;
   top: 50%;
@@ -136,38 +137,32 @@ p, .countdown, .info-box {
 
 .hero-text-content h1 {
   font-family: "Tangerine", cursive;
-  font-weight: 400;
-  font-style: normal;
   font-size: 4rem;
   margin-bottom: 1rem;
 }
 
 .hero-text-content h2 {
-  font-family: "League Spartan", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 100;
-  font-style: normal;
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
 
 .hero-text-content p {
-   font-family: "Imperial Script", cursive;
-  font-weight: 400;
-  font-style: normal;
-  text-align: center;
+  font-family: "Imperial Script", cursive;
   font-size: 2rem;
 }
 
-.esp1-text-content{
-   font-family: "Imperial Script", cursive;
-  font-weight: 400;
-  font-style: normal;
-  text-align: center;
+.esp1-text-content {
+  font-family: "Imperial Script", cursive;
   font-size: 1rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  z-index: 1;
 }
 
-    /* Play/Pause button */
+/* ========================================
+   BOTÓN AUDIO
+======================================== */
 .audio-play-button {
   position: absolute;
   bottom: 20px;
@@ -183,18 +178,23 @@ p, .countdown, .info-box {
   z-index: 3;
   transition: background-color 0.3s ease;
 }
+
 .audio-play-button:hover {
   background: rgba(255, 255, 255, 1);
 }
+
 .audio-play-button svg {
   width: 24px;
   height: 24px;
   fill: #000;
 }
 
+/* ========================================
+   CONTADOR
+======================================== */
 .fondo-contador {
   position: relative;
-  height: 100vh; /* Toma todo el alto del dispositivo */
+  height: 100vh;
   width: 100%;
   overflow: hidden;
   padding: 2rem 1rem;
@@ -226,12 +226,10 @@ p, .countdown, .info-box {
 }
 
 .time-box {
-  /* Sin fondo ni padding */
-  border-radius: 0; /* opcional, ya que no hay fondo */
   min-width: 70px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* centra el número */
+  align-items: center;
 }
 
 .number {
@@ -242,97 +240,133 @@ p, .countdown, .info-box {
 
 .label {
   font-size: 1rem;
-  align-self: center; /* etiqueta centrada debajo del número */
 }
 
-.esp1-text-content {
-  margin-bottom: 1.5rem;
-  font-size: 1rem;
+/* ========================================
+   FORMULARIO
+======================================== */
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
   z-index: 1;
 }
 
+.contenedor {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  width: 100%;
+}
 
+.input-container {
+  position: relative;
+  margin: 30px 0;
+}
 
-
-
-.btn {
-  background: #000;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  margin-top: 0.5rem;
+.input {
+  background: none;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
+  border-bottom: 2px solid #aaa;
+  width: 100%;
+  font-size: 16px;
+  padding: 10px 0;
+  outline: none;
 }
 
-.divider {
-  width: 80%;
+.placeholder {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #999;
+  font-size: 14px;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.input:focus + .cut + .placeholder,
+.input:not(:placeholder-shown) + .cut + .placeholder {
+  top: -14px;
+  font-size: 12px;
+  color: #555;
+}
+
+.cut {
+  background: #EFE1D0;
   height: 2px;
-  background: #eee;
-  margin: 2rem auto;
-}
-
-input, button {
-  padding: 10px;
-  margin: 8px 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  max-width: 400px;
 }
 
-.formulario, .resultado {
+.cut-short {
+  width: 50%;
+}
+
+.submit {
+  background: #222;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit:hover {
+  background: #444;
+}
+
+/* ========================================
+   RESULTADO Y MENSAJES
+======================================== */
+.mensaje {
+  color: #333;
+  margin-top: 10px;
+}
+
+.resultado {
   margin-top: 20px;
-  width: 100%;
-  max-width: 400px;
+  background: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #6658d3;
+}
+
+.resultado.error {
+  color: #d35858;
 }
 
 .hidden {
   display: none;
 }
 
+/* ========================================
+   ANIMACIONES PERSONALIZADAS
+======================================== */
 .focus-in-contract-bck {
-  -webkit-animation: focus-in-contract-bck 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-          animation: focus-in-contract-bck 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: focus-in-contract-bck 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-/**
- * ----------------------------------------
- * animation focus-in-contract-bck
- * ----------------------------------------
- */
-@-webkit-keyframes focus-in-contract-bck {
-  0% {
-    letter-spacing: 1em;
-    -webkit-transform: translateZ(800px);
-            transform: translateZ(800px);
-    -webkit-filter: blur(48px);
-            filter: blur(48px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateZ(12px);
-            transform: translateZ(12px);
-    -webkit-filter: blur(0);
-            filter: blur(0);
-    opacity: 1;
-  }
-}
 @keyframes focus-in-contract-bck {
   0% {
     letter-spacing: 1em;
-    -webkit-transform: translateZ(800px);
-            transform: translateZ(800px);
-    -webkit-filter: blur(48px);
-            filter: blur(48px);
+    transform: translateZ(800px);
+    filter: blur(48px);
     opacity: 0;
   }
   100% {
-    -webkit-transform: translateZ(12px);
-            transform: translateZ(12px);
-    -webkit-filter: blur(0);
-            filter: blur(0);
+    transform: translateZ(12px);
+    filter: blur(0);
     opacity: 1;
   }
 }
-
-

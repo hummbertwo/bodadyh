@@ -2,104 +2,100 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Invitación Boda</title>
   <link rel="stylesheet" href="css/styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=League+Spartan:wght@100..900&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=League+Spartan:wght@100..900&family=Tangerine:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
   <!-- HERO CON VIDEO -->
   <section class="hero-video-container">
-    <video
-      src="img/video1.mp4"
-      loop
-      muted
-      poster="public/hero-bg.png"
-      preload="auto"
-      autoplay
-      playsinline
-    ></video>
+    <video src="img/video1.mp4" loop muted poster="public/hero-bg.png" preload="auto" autoplay playsinline></video>
     <div class="hero-video-overlay"></div>
     <div class="hero-text-content">
-      <h1 class="focus-in-contract-bck">Daniela & Humberto</h1>
+      <h1 class="focus-in-contract-bck">Daniela &amp; Humberto</h1>
       <h2>Nos Casamos</h2>
       <p>01.02.2026</p>
     </div>
     <div class="scroll-indicator">
-  <svg viewBox="0 0 24 24" class="scroll-icon">
-     <path d="M12 16.5l-8-8 1.41-1.41L12 13.67l6.59-6.58L20 8.5z" />
-  </svg>
-</div>
+      <svg viewBox="0 0 24 24" class="scroll-icon" aria-hidden="true" focusable="false">
+        <path d="M12 16.5l-8-8 1.41-1.41L12 13.67l6.59-6.58L20 8.5z" />
+      </svg>
+    </div>
     <!-- Botón play/pause para canción -->
-    <div class="audio-play-button" id="audioPlayBtn" title="Reproducir canción">
+    <div class="audio-play-button" id="audioPlayBtn" title="Reproducir canción" role="button" tabindex="0" aria-pressed="false">
       <!-- Ícono play por defecto -->
-      <svg id="iconPlayPause" viewBox="0 0 24 24">
+      <svg id="iconPlayPause" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <path d="M8 5v14l11-7z" />
       </svg>
     </div>
-
     <!-- Audio oculto -->
     <audio id="weddingSong" src="img/Love On The Brain.mp3" preload="auto" autoplay></audio>
-    
   </section>
 
   <section>
-   <h2 class="animar">Mensaje de los Novios</h2>
-
-
+    <h2 class="animar">Mensaje de los Novios</h2>
   </section>
-
 
   <section class="fondo-contador">
-  <img src="img/R.jpg" alt="Fondo" class="bg-image" />
-  
-  <div class="esp1-text-content">
-    <h2>FALTAN:</h2>
-  </div>
-  
-  <div class="countdown" id="countdown">
-    <div class="time-box">
-      <span class="number" id="days">00</span>
-      <span class="label">Días</span>
+    <img src="img/R.jpg" alt="Fondo" class="bg-image" />
+    <div class="esp1-text-content">
+      <h2>FALTAN:</h2>
     </div>
-    <div class="time-box">
-      <span class="number" id="hours">00</span>
-      <span class="label">Horas</span>
+    <div class="countdown" id="countdown">
+      <div class="time-box">
+        <span class="number" id="days">00</span>
+        <span class="label">Días</span>
+      </div>
+      <div class="time-box">
+        <span class="number" id="hours">00</span>
+        <span class="label">Horas</span>
+      </div>
+      <div class="time-box">
+        <span class="number" id="minutes">00</span>
+        <span class="label">Minutos</span>
+      </div>
+      <div class="time-box">
+        <span class="number" id="seconds">00</span>
+        <span class="label">Segundos</span>
+      </div>
     </div>
-    <div class="time-box">
-      <span class="number" id="minutes">00</span>
-      <span class="label">Minutos</span>
+  </section>
+
+  <section class="form">
+    <div class="contenedor">
+      <!-- Campo de código -->
+      <div class="input-container ic1">
+        <input id="codigo" class="input" type="text" placeholder=" " />
+        <div class="cut"></div>
+        <label for="codigo" class="placeholder">Ingresa tu código</label>
+      </div>
+
+      <button class="submit" onclick="verificarCodigo()">Verificar código</button>
+
+      <!-- Formulario dinámico -->
+      <div class="hidden" id="formulario">
+        <p id="mensajeEntradas" class="mensaje"></p>
+
+        <div class="input-container ic2">
+          <input id="nombre" class="input" type="text" placeholder=" " />
+          <div class="cut"></div>
+          <label for="nombre" class="placeholder">Tu nombre</label>
+        </div>
+
+        <div class="input-container ic2">
+          <input id="cantidad" class="input" type="number" min="1" placeholder=" " />
+          <div class="cut cut-short"></div>
+          <label for="cantidad" class="placeholder">Asistentes</label>
+        </div>
+
+        <button class="submit" onclick="confirmar()">Confirmar asistencia</button>
+      </div>
+
+      <!-- Resultado -->
+      <div class="resultado hidden" id="resultado"></div>
     </div>
-    <div class="time-box">
-      <span class="number" id="seconds">00</span>
-      <span class="label">Segundos</span>
-    </div>
-  </div>
-</section>
-
-
-  <section>
-    <h2>Confirmar Asistencia</h2>
-    <p>Te esperamos para celebrar este momento juntos</p>
-
-    <label for="codigo">Ingresa tu código de invitación:</label>
-    <input type="text" id="codigo" placeholder="Ej: COD1010" />
-    <button onclick="verificarCodigo()">Verificar</button>
-
-    <div class="formulario hidden" id="formulario">
-      <p id="mensajeEntradas"></p>
-
-      <label for="nombre">Tu nombre:</label>
-      <input type="text" id="nombre" placeholder="Ej: Juan Pérez" />
-
-      <label for="cantidad">¿Cuántas personas asistirán?</label>
-      <input type="number" id="cantidad" min="1" placeholder="Ej: 2" />
-
-      <button onclick="confirmar()">Confirmar asistencia</button>
-    </div>
-
-    <div class="resultado hidden" id="resultado"></div>
   </section>
 
   <div class="divider"></div>
@@ -108,13 +104,13 @@
     <h2>Ceremonia</h2>
     <p>3:00 hrs - Templo Santo Domingo Savio</p>
     <img src="img/" alt="Pareja de pie" />
-    <a href="https://maps.app.goo.gl/mxoMxy9c2A38BK9NA" class="btn">CÓMO LLEGAR</a>
+    <a href="https://maps.app.goo.gl/mxoMxy9c2A38BK9NA" class="btn" target="_blank" rel="noopener noreferrer">CÓMO LLEGAR</a>
   </section>
 
   <section>
     <h2>Fiesta</h2>
     <p>7:30 hrs - Salón Elite Eventos Black</p>
-    <a href="https://maps.app.goo.gl/cmQbFhKMeAZL4BSg7" class="btn">CÓMO LLEGAR</a>
+    <a href="https://maps.app.goo.gl/cmQbFhKMeAZL4BSg7" class="btn" target="_blank" rel="noopener noreferrer">CÓMO LLEGAR</a>
   </section>
 
   <div class="divider"></div>
