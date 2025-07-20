@@ -36,6 +36,11 @@ section.visible {
   transform: translateY(0);
 }
 
+.seccion2{
+  max-width: 1200px; /* máximo ancho */
+  min-height: 300px; /* mínimo alto */  
+}
+
 /* ========================================
    TEXTOS GENERALES
 ======================================== */
@@ -53,8 +58,11 @@ h2, h3 {
 }
 
 p, .countdown, .info-box {
+  font-family: "League Spartan", sans-serif;
   text-align: center;
   margin: 0.5rem 0;
+  font-weight: 100;
+  font-size: 1rem;
 }
 
 /* ========================================
@@ -160,6 +168,15 @@ img {
   z-index: 1;
 }
 
+.text-uno{
+   font-family: "Imperial Script", cursive;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 4rem;
+  z-index: 1;
+}
+
 /* ========================================
    BOTÓN AUDIO
 ======================================== */
@@ -251,6 +268,8 @@ img {
   gap: 1rem;
   justify-content: center;
   z-index: 1;
+    max-width: 1200px; /* máximo ancho */
+  min-height: 300px; /* mínimo alto */  
 }
 
 .contenedor {
