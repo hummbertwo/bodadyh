@@ -137,7 +137,7 @@ img {
 
 .scroll-indicator {
   position: absolute;
-  bottom: 20px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   animation: bounce 2s infinite;
@@ -221,9 +221,26 @@ img {
   z-index: 1;
 }
 
+.text-tres{
+  font-family: "Tangerine", cursive;
+  font-weight: 700;
+  font-style: normal;
+  text-align: left;
+  margin-bottom: 2rem;
+  font-size: 4rem;
+  z-index: 1;
+}
+
 .ceremonia {
   text-align: left;
   padding: 20px;
+}
+
+.recepcion {
+  text-align: left;
+  padding: 20px;
+  max-width: 1200px; /* máximo ancho */
+  min-height: 300px; /* mínimo alto */  
 }
 
 /* ========================================
