@@ -38,7 +38,7 @@
     <div class="animar">
     <h2 class="text-uno">¡Estas Invitado!</h2>
     </div>
-    <p>Nos encantaria que seas parte de este momento tan especial para nosotros, ¡Falta poco!</p>
+    <p>Nos encantaria que seas parte de este momento tan especial para nosotros. ¡Falta poco!</p>
   </section>
 
   <section class="fondo-contador">
@@ -67,56 +67,44 @@
   </section>
 
   <section class="form">
-    <div class="contenedor">
-      <!-- Campo de código -->
-      <div class="input-container ic1">
-        <input id="codigo" class="input" type="text" placeholder=" " />
-        <div class="cut"></div>
-        <label for="codigo" class="placeholder">Ingresa tu código</label>
-      </div>
-
-      <button class="submit" onclick="verificarCodigo()">Verificar código</button>
-
-      <!-- Formulario dinámico -->
-      <div class="hidden" id="formulario">
-        <p id="mensajeEntradas" class="mensaje"></p>
-
-        <div class="input-container ic2">
-          <input id="nombre" class="input" type="text" placeholder=" " />
-          <div class="cut"></div>
-          <label for="nombre" class="placeholder">Tu nombre</label>
-        </div>
-
-        <div class="input-container ic2">
-          <input id="cantidad" class="input" type="number" min="1" placeholder=" " />
-          <div class="cut cut-short"></div>
-          <label for="cantidad" class="placeholder">Asistentes</label>
-        </div>
-
-        <button class="submit" onclick="confirmar()">Confirmar asistencia</button>
-      </div>
-
-      <!-- Resultado -->
-      <div class="resultado hidden" id="resultado"></div>
+  <div class="contenedor">
+    <!-- Campo de código -->
+    <div class="input-container ic1">
+      <input id="codigo" class="input" type="text" placeholder=" " />
+      <div class="cut"></div>
+      <label for="codigo" class="placeholder">Ingresa tu código</label>
     </div>
-  </section>
+
+    <button class="submit" onclick="verificarCodigo()">Verificar código</button>
+
+    <!-- Formulario dinámico -->
+    <div class="hidden" id="formulario">
+      <h3>Invitados</h3>
+      <div id="invitadosLista"></div>
+      <button class="submit" onclick="confirmar()">Enviar Confirmación</button>
+    </div>
+
+    <!-- Resultado -->
+    <div class="resultado hidden" id="resultado" style="margin-top: 20px;"></div>
+  </div>
+</section>
 
   <div class="divider"></div>
 
-  <section>
-    <h2 class="text-uno">Ceremonia</h2>
+  <section class="ceremonia">
+    <h2 class="text-dos">Ceremonia</h2>
     <p>Te esperamos en Iglesia Templo Santo Domingo Savio</p>
     <p>a las 3:00pm Hrs</p>
-    <img src="img/WhatsApp Image 2025-07-17 at 10.33.05 PM.jpeg" alt="Pareja de pie" />
-    <a href="https://maps.app.goo.gl/mxoMxy9c2A38BK9NA" class="btn" target="_blank" rel="noopener noreferrer">CÓMO LLEGAR</a>
+    <img src="img/WhatsApp Image 2025-07-17 at 10.33.05 PM.jpeg" />
+    <a href="https://maps.app.goo.gl/mxoMxy9c2A38BK9NA" class="btn">CÓMO LLEGAR</a>
   </section>
 
   <section>
-    <h2 class="text-uno">Recepción</h2>
+    <h2 class="text-dos">Recepción</h2>
     <p>La celebración será en Salón Elite Eventos Black</p>
     <p>a las 8:00pm Hrs</p>
-    <img src="img/WhatsApp Image 2025-07-17 at 10.33.05 PM.jpeg" alt="Pareja de pie" />
-    <a href="https://maps.app.goo.gl/cmQbFhKMeAZL4BSg7" class="btn" target="_blank" rel="noopener noreferrer">CÓMO LLEGAR</a>
+    <img src="img/WhatsApp Image 2025-07-17 at 10.33.05 PM.jpeg" />
+    <a href="https://maps.app.goo.gl/cmQbFhKMeAZL4BSg7" class="btn">CÓMO LLEGAR</a>
   </section>
 
   <div class="divider"></div>
@@ -133,7 +121,9 @@
     <p>La fiesta la haces tú. ¡Agrega tus canciones favoritas a nuestra playlist colaborativa!</p>
     <a href="#" class="btn">AGREGAR CANCIONES</a>
   </section>
-
+  
+  <script src="js/invitados.js"></script>
+  <script src="js/formulario.js"></script>
   <script src="js/scripts.js"></script>
 </body>
 </html>

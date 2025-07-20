@@ -11,7 +11,10 @@
 }
 
 body {
-  background: #EFE1D0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
   overflow-x: hidden;
 }
 
@@ -82,6 +85,7 @@ img {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  padding: 0
 }
 
 .hero-video-container video {
@@ -177,6 +181,20 @@ img {
   z-index: 1;
 }
 
+.text-dos{
+   font-family: "Imperial Script", cursive;
+  font-weight: 400;
+  text-align: right;
+  margin-bottom: 2rem;
+  font-size: 4rem;
+  z-index: 1;
+}
+
+.ceremonia {
+  text-align: left;
+  padding: 20px;
+}
+
 /* ========================================
    BOTÓN AUDIO
 ======================================== */
@@ -204,6 +222,23 @@ img {
   width: 24px;
   height: 24px;
   fill: #000;
+}
+
+.btn {
+  background: #222;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+ background: #444;
 }
 
 /* ========================================
@@ -250,7 +285,10 @@ img {
 }
 
 .number {
-  font-size: 1.5rem;
+  font-family: "Tangerine", cursive;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 4rem;
   font-weight: bold;
   margin-bottom: 0.25rem;
 }
