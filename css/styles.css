@@ -77,6 +77,37 @@ img {
   margin-bottom: 1rem;
 }
 
+.galeria {
+  padding: 2rem;
+  text-align: center;
+  background-color: #f9f4ef;
+}
+
+.galeria h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.galeria-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 0px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.galeria-grid img:hover {
+  transform: scale(1.03);
+}
+
 /* ========================================
    HERO: VIDEO Y OVERLAY
 ======================================== */
