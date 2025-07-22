@@ -465,12 +465,12 @@ img {
 @keyframes focus-in-contract-bck {
   0% {
     letter-spacing: 1em;
-    transform: translateZ(800px);
-    filter: blur(48px);
+    transform: translateZ(1000px);
+    filter: blur(80px);
     opacity: 0;
   }
   100% {
-    transform: translateZ(12px);
+    transform: translateZ(1px);
     filter: blur(0);
     opacity: 1;
   }
