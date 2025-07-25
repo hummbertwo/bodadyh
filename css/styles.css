@@ -282,8 +282,17 @@ img {
   font-weight: 400;
   margin-bottom: 2rem;
    text-align: center;
-  font-size: 2rem;
+  font-size: 3rem;
   z-index: 1;
+  color: #000000;
+}
+
+.text-tres  {
+  font-family: "League Spartan", sans-serif;
+  text-align: center;
+  margin: 0.5rem 0;
+  font-weight: 400;
+  font-size: 2rem;
   color: #000000;
 }
 
@@ -293,6 +302,24 @@ img {
   font-style: normal;
   text-align: center;
   font-size: 4rem;
+  color: #000000;
+}
+
+.text-cinco  {
+   font-family: "Tangerine", cursive;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+  font-size: 4rem;
+  color: #000000;
+}
+
+.text-seis  {
+   font-family: "Tangerine", cursive;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+  font-size: 2rem;
   color: #000000;
 }
 
@@ -316,8 +343,19 @@ img {
   font-style: normal;
   color: #222;
   padding: 12px 10px;
-  letter-spacing: 2px; /* Aumenta o reduce el valor */
+  letter-spacing: 1px; /* Aumenta o reduce el valor */
   font-size: 1rem;
+}
+
+.text-content-contador2 p {
+  font-family: "Newsreader", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: #222;
+  padding: 12px 10px;
+  letter-spacing: 1px; /* Aumenta o reduce el valor */
+  font-size: .8rem;
 }
 
 .icono-recepcion {
