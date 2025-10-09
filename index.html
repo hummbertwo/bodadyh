@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=League+Spartan:wght@100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Tangerine:wght@400;700&display=swap" rel="stylesheet" />
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="./css/styles2.css" />
+  <link rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
 
@@ -162,47 +162,35 @@
     </div>
   </section>
 
-  <!-- FORMULARIO / CONFIRMAR ASISTENCIA -->
-  <section class="form" id="confirmacion">
-    <h2 class="text-tres">Confirmar Asistencia</h2>
-    <div class="text-content-contador">
-      <p>Por favor confirmar tu asistencia antes del 27 de Enero.</p>
+  <!-- =========================
+   SECCIÓN FORMULARIO DE ASISTENCIA
+============================== -->
+<section id="confirmacion-asistencia">
+  <div class="container">
+    <h1>Confirmación de Asistencia</h1>
+
+    <div id="codigo-div" class="card">
+      <input type="text" id="codigo" placeholder="Ingresa tu código">
+      <button id="verificar-btn" class="submit">Verificar Código</button>
     </div>
 
-    <div class="contenedor" aria-labelledby="confirmacion">
-      <!-- campo original -->
-      <div class="input-container ic1">
-        <input id="codigo" class="input" type="text" placeholder=" " aria-label="Número celular" />
-        <div class="cut"></div>
-        <label for="codigo" class="placeholder">Ingresa tu Numero Celular</label>
-      </div>
-
-      <button class="submit" onclick="verificarCodigo()">Verificar código</button>
-
-      <!-- formulario dinámico (no lo toqué) -->
-      <div class="hidden" id="formulario">
-        <h3>Invitados</h3>
-        <div id="invitadosLista" aria-live="polite"></div>
-        <button class="submit" onclick="confirmar()">Enviar Confirmación</button>
-      </div>
-
-      <div class="resultado hidden" id="resultado" style="margin-top: 20px;"></div>
+    <div id="lista-div" class="card hidden">
+      <h2>Selecciona asistencia</h2>
+      <div id="lista-invitados"></div>
+      <button id="confirmar-btn" class="submit">Confirmar</button>
     </div>
 
-    <h2 class="text-cinco">No Niños</h2>
-    <p>Amamos a los niños, pero por razones de seguridad, nuestra boda será solo para adultos.</p>
-
-    <div class="text-content-contador2">
-      <p>ESPERAMOS CONTAR CON SU PRESENCIA</p>
+    <div id="resultado-div" class="card hidden">
+      <h2 id="mensaje"></h2>
+      <div id="animacion" class="animacion"></div>
     </div>
-
-    <h2 class="text-seis">Muchas Gracias</h2>
-  </section>
+  </div>
+</section>
 
   <!-- SCRIPTS: mantenemos el mismo orden para respetar dependencias -->
-  <script src="./js/invitados2.js"></script>
-  <script src="./js/formulario2.js"></script>
-  <script src="./js/scripts2.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script> 
+  <script src="./js/lista.js"></script>
+  <script src="./js/form.js"></script>
+  <script src="./js/script.js"></script>
 </body>
 </html>

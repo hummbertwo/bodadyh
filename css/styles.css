@@ -263,119 +263,57 @@ p {
 /* ========================================
    FORMULARIO (manteniendo clases)
 ======================================== */
-.form { padding: 1.2rem; width:100%; }
-.contenedor {
+#confirmacion-asistencia .container {
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  padding: 2rem;
+}
+
+#confirmacion-asistencia .card {
   background: #fff;
-  padding: 18px;
-  border-radius: 14px;
-  box-shadow: 0 6px 22px rgba(0,0,0,0.06);
-  width: 94%;
-  max-width: 420px;
-  margin: 0.6rem auto;
+  padding: 2rem;
+  margin: 1rem 0;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
 }
 
-.input-container { position: relative; margin: 18px 0; }
-.input {
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid #e2d7cc;
-  width: 100%;
-  font-size: 16px;
-  padding: 10px 6px;
-  outline: none;
-}
-.placeholder {
-  position: absolute;
-  top: 10px;
-  left: 0;
-  color: #9a8f84;
-  font-size: 14px;
-  transition: 0.25s;
-  pointer-events: none;
-}
-.cut { height: 2px; background: #efe1d0; position: absolute; bottom: 0; left:0; width:100%; }
-.input:focus + .cut + .placeholder,
-.input:not(:placeholder-shown) + .cut + .placeholder {
-  top: -14px;
-  font-size: 12px;
-  color: #6b5b50;
+#confirmacion-asistencia input[type="text"] {
+  padding: 0.8rem;
+  width: 70%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+  font-size: 1rem;
 }
 
-.submit {
-  background: #2a2a2a;
+#confirmacion-asistencia button {
+  padding: 0.8rem 1.5rem;
+  background: #4CAF50;
   color: #fff;
   border: none;
-  padding: 12px;
-  width: 100%;
-  border-radius: 10px;
-  font-size: 1rem;
+  border-radius: 8px;
   cursor: pointer;
-}
-
-/* resultado / mensajes (manteniendo .resultado) */
-.resultado {
-  margin-top: 14px;
-  background: #fff4f0;
-  padding: 12px;
-  border-radius: 10px;
-  text-align: center;
-  color: #6b4b3a;
-}
-.resultado.error { color: #c84b4b; }
-
-/* util hidden */
-.hidden { display: none !important; }
-
-/* ===============================
-   MENSAJE DE GRACIAS + BOTÓN INFO
-=============================== */
-.gracias-container {
-  text-align: center;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 20px;
-  padding: 2rem 1.5rem;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  animation: fadeInUp 0.8s ease;
-}
-
-.gracias-container h3 {
-  font-family: "Imperial Script", cursive;
-  font-size: 2rem;
-  color: #222;
-  margin-bottom: 0.5rem;
-}
-
-.gracias-container p {
   font-size: 1rem;
-  color: #555;
-  margin-bottom: 1.5rem;
+  transition: 0.3s;
 }
 
-.btn-mas-info {
-  background: #000;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  padding: 12px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: transform 0.2s, background 0.3s;
+#confirmacion-asistencia button:hover {
+  background: #45a049;
 }
 
-.btn-mas-info:hover {
-  background: #333;
-  transform: scale(1.05);
+#confirmacion-asistencia .guest {
+  margin: 0.5rem 0;
+  text-align: left;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+#confirmacion-asistencia .animacion {
+  font-size: 3rem;
+  margin-top: 1rem;
+}
+
+.hidden {
+  display: none !important;
 }
 
 
