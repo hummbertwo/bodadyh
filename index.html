@@ -2,57 +2,78 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Invitación Boda</title>
-  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=League+Spartan:wght@100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Tangerine:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="./css/styles2.css" />
 </head>
 <body>
 
-  <!-- HERO CON VIDEO -->
+  <!-- HERO CON VIDEO (pantalla completa tipo webapp) -->
   <section class="hero-video-container">
-    <video src="img/video1.mp4" loop muted poster="public/hero-bg.png" preload="auto" autoplay playsinline></video>
+    <video
+      id="heroVideo"
+      src="img/video1.mp4"
+      loop
+      muted
+      poster="public/hero-bg.png"
+      preload="auto"
+      autoplay
+      playsinline
+      aria-label="Video de fondo"
+    ></video>
+
     <div class="hero-video-overlay"></div>
+
     <div class="hero-text-content">
       <h1 class="focus-in-contract-bck">Daniela &amp; Humberto</h1>
       <h2>Nuestra Boda</h2>
     </div>
-    <div class="scroll-indicator">
-      <svg viewBox="0 0 24 24" class="scroll-icon" aria-hidden="true" focusable="false">
+
+    <div class="scroll-indicator" aria-hidden="true">
+      <svg viewBox="0 0 24 24" class="scroll-icon" focusable="false">
         <path d="M12 16.5l-8-8 1.41-1.41L12 13.67l6.59-6.58L20 8.5z" />
       </svg>
     </div>
+
     <!-- Botón play/pause para canción -->
-    <div class="audio-play-button" id="audioPlayBtn" title="Reproducir canción" role="button" tabindex="0" aria-pressed="false">
-      <!-- Ícono play por defecto -->
-      <svg id="iconPlayPause" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M8 5v14l11-7z" />
+    <div class="audio-play-button" id="audioPlayBtn" title="Reproducir canción" role="button" tabindex="0" aria-pressed="false" aria-label="Reproducir música">
+      <svg id="iconPlayPause" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M8 5v14l11-7z"></path>
       </svg>
     </div>
+
     <!-- Audio oculto -->
-    <audio id="weddingSong" src="img/Love On The Brain.mp3" preload="auto" autoplay></audio>
+    <audio id="weddingSong" src="img/Love On The Brain.mp3" preload="auto" aria-hidden="true"></audio>
   </section>
 
+  <!-- INVITACIÓN / INTRO (mobile-first) -->
   <section class="seccion2">
-        <img src="assets/7395887.png" class="flor-decorativa flor1" />
-    <img src="assets/7395887-2.png" class="flor-decorativa flor2" />
+    <img src="assets/7395887.png" class="flor-decorativa flor1" alt="" />
+    <img src="assets/7395887-2.png" class="flor-decorativa flor2" alt="" />
     <div class="animar">
-    <h2 class="text-uno">¡Estas Invitado!</h2>
+      <h2 class="text-uno">¡Estás Invitado!</h2>
     </div>
-    <p>Nos encantaria que seas parte de este momento tan especial para nosotros. ¡Falta poco!</p>
+    <p>Nos encantaría que seas parte de este momento tan especial para nosotros. ¡Falta poco!</p>
   </section>
 
+  <!-- CONTADOR -->
   <section class="fondo-contador">
- <div class="animar">
-   <div class="text-content-contador">
-    <p>Con el amor que nos une, la bendición de Dios y el apoyo de nuestros padres, te invitamos a celebrar nuestra boda</p>
+    <div class="animar">
+      <div class="text-content-contador">
+        <p>Con el amor que nos une, la bendición de Dios y el apoyo de nuestros padres, te invitamos a celebrar nuestra boda</p>
       </div>
-    <div class="esp1-text-content">
-      <h2 class="text-cuatro">01.02.2026</h2>
-      <h3>FALTAN:</h3>
+      <div class="esp1-text-content">
+        <h2 class="text-cuatro">01.02.2026</h2>
+        <h3>FALTAN:</h3>
+      </div>
     </div>
-    </div>
-    <div class="countdown" id="countdown">
+
+    <div class="countdown" id="countdown" role="timer" aria-live="polite">
       <div class="time-box">
         <span class="number" id="days">00</span>
         <span class="label">Días</span>
@@ -72,104 +93,116 @@
     </div>
   </section>
 
-  <div class="divider"></div>
+  <div class="divider" aria-hidden="true"></div>
 
+  <!-- CEREMONIA -->
   <section class="ceremonia">
-    <img src="assets/2594753-2.png" class="flor-decorativa flor3" />
-     <div class="animar">
-      <img src="assets/iglesia.png" alt="Icono Recepción" class="icono-recepcion" />
-    <h2 class="text-dos">Ceremonia</h2>
+    <img src="assets/2594753-2.png" class="flor-decorativa flor3" alt="" />
+    <div class="animar">
+      <img src="assets/iglesia.png" alt="Icono Ceremonia" class="icono-recepcion" />
+      <h2 class="text-dos">Ceremonia</h2>
     </div>
     <p>Iglesia Templo Santo Domingo Savio</p>
-  <p>a las 3:00pm Hrs</p>
-    <!-- Tarjeta de mapa -->
-<div style="width: 100%; max-width: 600px; margin: 2rem auto; border-radius: 0px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
-<iframe 
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28761.56331494694!2d-100.2627699521484!3d25.69795321399874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662954d138a3cbf%3A0x58773fabf590da87!2sTemplo%20Santo%20Domingo%20Savio!5e0!3m2!1ses!2smx!4v1752981616945!5m2!1ses!2smx" 
-  width="100%" 
-  height="300" 
-  style="border:0;" 
-  allowfullscreen="" 
-  loading="lazy" 
-  referrerpolicy="no-referrer-when-downgrade">
-</iframe>
-</div>
-    <button href="https://maps.app.goo.gl/mxoMxy9c2A38BK9NA" class="btn">Cómo Llegar</buttona>
+    <p>a las 3:00pm Hrs</p>
+
+    <div style="width: 100%; max-width: 600px; margin: 1.25rem auto; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.12); border-radius:12px;">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28761.56331494694!2d-100.2627699521484!3d25.69795321399874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662954d138a3cbf%3A0x58773fabf590da87!2sTemplo%20Santo%20Domingo%20Savio!5e0!3m2!1ses!2smx!4v1752981616945!5m2!1ses!2smx" 
+        width="100%" 
+        height="300" 
+        style="border:0;" 
+        allowfullscreen 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade"
+        aria-hidden="false"
+      ></iframe>
+    </div>
+
+    <a href="https://maps.app.goo.gl/mxoMxy9c2A38BK9NA" class="btn">Cómo Llegar</a>
   </section>
 
+  <!-- RECEPCIÓN -->
   <section class="recepcion">
-     <img src="assets/2594753.png" class="flor-decorativa flor4" />
-     <div class="animar">
-       <img src="assets/brindis.png" alt="Icono Recepción" class="icono-recepcion" />
-    <h2 class="text-dos">Recepción</h2>
+    <img src="assets/2594753.png" class="flor-decorativa flor4" alt="" />
+    <div class="animar">
+      <img src="assets/brindis.png" alt="Icono Recepción" class="icono-recepcion" />
+      <h2 class="text-dos">Recepción</h2>
     </div>
-  <p>Salón Elite Eventos Black</p>
+    <p>Salón Elite Eventos Black</p>
     <p>a las 7:30pm Hrs</p>
-  <!-- Tarjeta de mapa -->
-<div style="width: 100%; max-width: 600px; margin: 2rem auto; border-radius: 0px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
-<iframe 
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28766.227810072767!2d-100.30512876523437!3d25.67863708400403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662bf21c80dbdfb%3A0xb30166af10fe4375!2sElite%20Eventos%20Gold!5e0!3m2!1ses!2smx!4v1752981977027!5m2!1ses!2smx" 
-  width="100%" 
-  height="300" 
-  style="border:0;" 
-  allowfullscreen="" 
-  loading="lazy" 
-  referrerpolicy="no-referrer-when-downgrade">
-</iframe>
-</div>
-    <button href="https://maps.app.goo.gl/cmQbFhKMeAZL4BSg7" class="btn">Cómo Llegar</button>
+
+    <div style="width: 100%; max-width: 600px; margin: 1.25rem auto; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.12); border-radius:12px;">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28766.227810072767!2d-100.30512876523437!3d25.67863708400403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662bf21c80dbdfb%3A0xb30166af10fe4375!2sElite%20Eventos%20Gold!5e0!3m2!1ses!2smx!4v1752981977027!5m2!1ses!2smx" 
+        width="100%" 
+        height="300" 
+        style="border:0;" 
+        allowfullscreen 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade"
+        aria-hidden="false"
+      ></iframe>
+    </div>
+
+    <a href="https://maps.app.goo.gl/cmQbFhKMeAZL4BSg7" class="btn">Cómo Llegar</a>
   </section>
 
-   <section class="galeria">
-  <div class="galeria-grid">
-    <img src="img/imege1.jpeg" alt="Foto 1">
-    <img src="img/image2.jpeg" alt="Foto 2">
-    <img src="img/image3.jpeg" alt="Foto 3">
-    <img src="img/image4.jpeg" alt="Foto 4">
-    <img src="img/image5.jpeg" alt="Foto 5">
-    <img src="img/image6.jpeg" alt="Foto 6">
-    <img src="img/image7.jpeg" alt="Foto 7">
-    <img src="img/image8.jpeg" alt="Foto 8">
-    <img src="img/image9.jpeg" alt="Foto 9">
-  </div>
+  <!-- GALERÍA -->
+  <section class="galeria">
+    <div class="galeria-grid">
+      <img src="img/imege1.jpeg" alt="Foto 1">
+      <img src="img/image2.jpeg" alt="Foto 2">
+      <img src="img/image3.jpeg" alt="Foto 3">
+      <img src="img/image4.jpeg" alt="Foto 4">
+      <img src="img/image5.jpeg" alt="Foto 5">
+      <img src="img/image6.jpeg" alt="Foto 6">
+      <img src="img/image7.jpeg" alt="Foto 7">
+      <img src="img/image8.jpeg" alt="Foto 8">
+      <img src="img/image9.jpeg" alt="Foto 9">
+    </div>
   </section>
 
-    <section class="form">
-        <h2 class="text-tres">Confirmar Asistencia</h2>
+  <!-- FORMULARIO / CONFIRMAR ASISTENCIA -->
+  <section class="form" id="confirmacion">
+    <h2 class="text-tres">Confirmar Asistencia</h2>
     <div class="text-content-contador">
-    <p>Porfavor confirmar tu asistencia antes del 27 de Enero.</p>
+      <p>Por favor confirmar tu asistencia antes del 27 de Enero.</p>
+    </div>
+
+    <div class="contenedor" aria-labelledby="confirmacion">
+      <!-- campo original -->
+      <div class="input-container ic1">
+        <input id="codigo" class="input" type="text" placeholder=" " aria-label="Número celular" />
+        <div class="cut"></div>
+        <label for="codigo" class="placeholder">Ingresa tu Numero Celular</label>
       </div>
-  <div class="contenedor">
-    <!-- Campo de código -->
-    <div class="input-container ic1">
-      <input id="codigo" class="input" type="text" placeholder=" " />
-      <div class="cut"></div>
-      <label for="codigo" class="placeholder">Ingresa tu Numero Celular</label>
+
+      <button class="submit" onclick="verificarCodigo()">Verificar código</button>
+
+      <!-- formulario dinámico (no lo toqué) -->
+      <div class="hidden" id="formulario">
+        <h3>Invitados</h3>
+        <div id="invitadosLista" aria-live="polite"></div>
+        <button class="submit" onclick="confirmar()">Enviar Confirmación</button>
+      </div>
+
+      <div class="resultado hidden" id="resultado" style="margin-top: 20px;"></div>
     </div>
 
-    <button class="submit" onclick="verificarCodigo()">Verificar código</button>
-
-    <!-- Formulario dinámico -->
-    <div class="hidden" id="formulario">
-      <h3>Invitados</h3>
-      <div id="invitadosLista"></div>
-      <button class="submit" onclick="confirmar()">Enviar Confirmación</button>
-    </div>
-
-    <!-- Resultado -->
-    <div class="resultado hidden" id="resultado" style="margin-top: 20px;"></div>
-  </div>
-  <h2 class="text-cinco">No Niños</h2>
+    <h2 class="text-cinco">No Niños</h2>
     <p>Amamos a los niños, pero por razones de seguridad, nuestra boda será solo para adultos.</p>
+
     <div class="text-content-contador2">
-    <p>ESPERAMOS CONTAR CON SU PRESENCIA</p>
-      </div>
-      <h2 class="text-seis">Muchas Gracias</h2>
-</section>
-  
-  <script src="js/invitados.js"></script>
-  <script src="js/formulario2.js"></script>
-  <script src="js/scripts.js"></script>
+      <p>ESPERAMOS CONTAR CON SU PRESENCIA</p>
+    </div>
+
+    <h2 class="text-seis">Muchas Gracias</h2>
+  </section>
+
+  <!-- SCRIPTS: mantenemos el mismo orden para respetar dependencias -->
+  <script src="./js/invitados2.js"></script>
+  <script src="./js/formulario2.js"></script>
+  <script src="./js/scripts2.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </body>
 </html>

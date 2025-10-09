@@ -5,43 +5,56 @@ const sheetsBestURL = "https://api.sheetbest.com/sheets/fa954cbf-04cd-4db7-8c35-
 let codigoActual = null;
 let invitados = [];
 
+// ===============================
+// Verificar Código
+// ===============================
 function verificarCodigo() {
   const input = document.getElementById("codigo").value.trim().toUpperCase();
-  const lista = codigos[input];
+  const lista = codigos[input]; // Asegúrate de tener definido el objeto 'codigos'
   const invitadosDiv = document.getElementById("invitadosLista");
   const resultado = document.getElementById("resultado");
 
+  // Limpiar mensajes previos
   resultado.classList.add("hidden");
   resultado.innerHTML = "";
   invitadosDiv.innerHTML = "";
 
-  if (lista) {
-    codigoActual = input;
-    invitados = lista;
-
-    lista.forEach((nombre, index) => {
-      invitadosDiv.innerHTML += `
-        <div style="margin: 20px 0;">
-          <label style="display:block; font-weight: bold;">${nombre}</label>
-          <div style="margin-top: 10px;">
-            <label style="margin-right: 15px;">
-              <input type="radio" name="asistencia_${index}" value="Sí" required> ✅ Asiste
-            </label>
-            <label>
-              <input type="radio" name="asistencia_${index}" value="No"> ❌ No asiste
-            </label>
-          </div>
-        </div>
-      `;
-    });
-
-    document.getElementById("formulario").classList.remove("hidden");
-  } else {
+  if (!lista) {
     alert("Código no válido. Verifica con los organizadores.");
-    document.getElementById("formulario").classList.add("hidden");
+    return;
   }
+
+  codigoActual = input;
+  invitados = lista;
+
+  // OCULTAR botón de verificar código con clase submit
+  const btnVerificar = document.querySelector(".submit");
+  if (btnVerificar) btnVerificar.style.display = "none";
+
+  // Mostrar lista de invitados
+  lista.forEach((nombre, index) => {
+    invitadosDiv.innerHTML += `
+      <div style="margin: 20px 0;">
+        <label style="display:block; font-weight: bold;">${nombre}</label>
+        <div style="margin-top: 10px;">
+          <label style="margin-right: 15px;">
+            <input type="radio" name="asistencia_${index}" value="Sí" required> ✅ Asiste
+          </label>
+          <label>
+            <input type="radio" name="asistencia_${index}" value="No"> ❌ No asiste
+          </label>
+        </div>
+      </div>
+    `;
+  });
+
+  // Mostrar formulario con botón de confirmar
+  document.getElementById("formulario").classList.remove("hidden");
 }
 
+// ===============================
+// Confirmar asistencia
+// ===============================
 async function confirmar() {
   const resultado = document.getElementById("resultado");
   const registros = [];
@@ -60,7 +73,7 @@ async function confirmar() {
       if (asistencia === "Sí") {
         contadorAsisten++;
         if (!nombreQueAsiste) {
-          nombreQueAsiste = nombre.split(" ")[0];
+          nombreQueAsiste = nombre.split(" ")[0]; // primer nombre que asistirá
         }
       }
 
@@ -79,6 +92,7 @@ async function confirmar() {
   }
 
   try {
+    // Enviar datos a la API
     for (let registro of registros) {
       await fetch(sheetsBestURL, {
         method: "POST",
@@ -87,22 +101,21 @@ async function confirmar() {
       });
     }
 
+    // Ocultar formulario
     document.getElementById("formulario").classList.add("hidden");
     resultado.classList.remove("hidden");
+    resultado.innerHTML = "";
 
     if (contadorAsisten > 0) {
-      const saludo = nombreQueAsiste
-        ? `¡Gracias, ${nombreQueAsiste}!`
-        : `¡Gracias por confirmar!`;
-
-      // Cambia esta URL al enlace que quieras mostrar en "Más información"
-      const linkMasInfo = "https://www.facebook.com/reel/1469677640358847"; 
+      // MENSAJE DE GRACIAS CON NOMBRE
+      const saludo = `¡Gracias, ${nombreQueAsiste}!`;
+      const linkMasInfo = "https://www.facebook.com/reel/1469677640358847";
 
       resultado.innerHTML = `
         <h3>${saludo}</h3>
-        <p>Se registraron ${contadorAsisten} persona(s) que asistirán con el código <strong>${codigoActual}</strong>.</p>
-        <button id="btnMasInfo" style="margin-top:15px; padding: 10px 20px; font-size: 16px; cursor:pointer;">
-          Más información
+        <p>Nos emociona compartir este momento tan especial contigo.</p>
+        <button id="btnMasInfo" style="margin-top:15px; padding:10px 20px; font-size:16px; cursor:pointer;">
+          Más Información
         </button>
       `;
 
@@ -110,20 +123,22 @@ async function confirmar() {
         window.open(linkMasInfo, "_blank");
       });
 
-      // Confeti si al menos 1 asistente
-      confetti({
-        particleCount: 150,
-        spread: 70,
-        origin: { y: 0.6 }
-      });
+      // Confeti si hay asistentes
+      if (typeof confetti !== "undefined") {
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+      }
 
     } else {
+      // MENSAJE ALTERNATIVO CON EMOJIS TRISTES
       resultado.innerHTML = `
-        <h3>¡Qué Mamon@!</h3>
-        <p>Nadie asistirá con el código <strong>${codigoActual}</strong>.</p>
+        <h3>¡Qué mal!</h3>
+        <p>Con el código <strong>${codigoActual}</strong> nadie podrá asistir 😢</p>
       `;
-
-      launchEmojiParticles("🖕🏼");
+      launchEmojiParticles("😢");
     }
 
   } catch (error) {
