@@ -1,7 +1,7 @@
 // ===============================
 // Confirmación de Asistencia
 // ===============================
-const sheetsBestURL = "https://script.google.com/macros/s/AKfycbwzyTc2NVbOCJgP7GURaTWF7nepSP28a1qSaq2WNwdsE2irsMqeDgqxbAoGrr1eANZ9ZQ/exec";
+const sheetsBestURL = "https://script.google.com/macros/s/AKfycbzOEuy_gOAEqtN0eB0vJbExkYeXj0e4wevKWbMxfHxycwsuncxq9iDKl1tuc8e0UtdNbQ/exec";
 let codigoActual = null;
 let invitados = [];
 
