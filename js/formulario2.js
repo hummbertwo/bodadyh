@@ -1,7 +1,7 @@
 // ===============================
 // Confirmación de Asistencia
 // ===============================
-const sheetsBestURL = "https://api.sheetbest.com/sheets/fa954cbf-04cd-4db7-8c35-e2c8d13432a2";
+const sheetsBestURL = "https://script.google.com/macros/s/AKfycbwzyTc2NVbOCJgP7GURaTWF7nepSP28a1qSaq2WNwdsE2irsMqeDgqxbAoGrr1eANZ9ZQ/exec";
 let codigoActual = null;
 let invitados = [];
 
