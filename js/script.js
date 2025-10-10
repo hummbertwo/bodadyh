@@ -157,3 +157,5 @@ if (elementsExist) {
 } else {
   console.warn('Elementos del countdown no encontrados');
 }
+
+
