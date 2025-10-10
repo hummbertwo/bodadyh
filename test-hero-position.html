@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba Posición Hero Text</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .hero-video-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 520px;
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hero-video-container video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: auto;
+            height: 110%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero-video-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.35));
+            z-index: 1;
+        }
+
+        .hero-text-content {
+            position: absolute;
+            top: 60%; /* ← AQUÍ PUEDES AJUSTAR LA POSICIÓN */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            text-align: center;
+            padding: 1rem;
+            color: #fff;
+        }
+
+        .hero-text-content h1 {
+            font-family: "Imperial Script", cursive;
+            font-size: 3rem;
+            line-height: 1;
+            margin-bottom: 0;
+            text-shadow: 0 4px 14px rgba(0,0,0,0.4);
+        }
+
+        .hero-text-content h2 {
+            font-size: 1.05rem;
+            font-weight: 200;
+            margin-top: 6px;
+        }
+
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 1000;
+        }
+
+        .controls button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #007bff;
+            color: white;
+        }
+
+        .controls button:hover {
+            background: #0056b3;
+        }
+
+        .position-indicator {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 20px;
+            background: red;
+            z-index: 3;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-video-container">
+        <video autoplay muted loop>
+            <source src="src/assets/media/video/video1.mp4" type="video/mp4">
+        </video>
+        
+        <div class="hero-video-overlay"></div>
+        
+        <!-- Indicador de posición -->
+        <div class="position-indicator" id="positionIndicator"></div>
+        
+        <div class="hero-text-content" id="heroText">
+            <h1>Daniela & Humberto</h1>
+            <h2>Nuestra Boda</h2>
+        </div>
+    </div>
+
+    <div class="controls">
+        <h3>🎛️ Controles de Posición</h3>
+        <p>Posición actual: <span id="currentPosition">60%</span></p>
+        
+        <button onclick="moveUp()">⬆️ Subir</button>
+        <button onclick="moveDown()">⬇️ Bajar</button>
+        <button onclick="resetPosition()">🔄 Reset</button>
+        
+        <h4>Posiciones predefinidas:</h4>
+        <button onclick="setPosition(40)">40% (Arriba)</button>
+        <button onclick="setPosition(50)">50% (Centro)</button>
+        <button onclick="setPosition(60)">60% (Abajo)</button>
+        <button onclick="setPosition(70)">70% (Más abajo)</button>
+        
+        <h4>📋 Código CSS:</h4>
+        <textarea id="cssCode" readonly style="width: 100%; height: 60px; font-size: 12px; background: #333; color: #0f0; border: none; padding: 5px;">
+.hero-text-content {
+  top: 60%;
+}</textarea>
+    </div>
+
+    <script>
+        let currentTop = 60;
+        
+        function updatePosition() {
+            const heroText = document.getElementById('heroText');
+            const positionIndicator = document.getElementById('positionIndicator');
+            const currentPositionSpan = document.getElementById('currentPosition');
+            const cssCode = document.getElementById('cssCode');
+            
+            heroText.style.top = currentTop + '%';
+            positionIndicator.style.top = currentTop + '%';
+            currentPositionSpan.textContent = currentTop + '%';
+            
+            cssCode.value = `.hero-text-content {\n  top: ${currentTop}%;\n}`;
+        }
+        
+        function moveUp() {
+            if (currentTop > 20) {
+                currentTop -= 5;
+                updatePosition();
+            }
+        }
+        
+        function moveDown() {
+            if (currentTop < 80) {
+                currentTop += 5;
+                updatePosition();
+            }
+        }
+        
+        function setPosition(position) {
+            currentTop = position;
+            updatePosition();
+        }
+        
+        function resetPosition() {
+            currentTop = 60;
+            updatePosition();
+        }
+        
+        // Inicializar
+        updatePosition();
+    </script>
+</body>
+</html>
