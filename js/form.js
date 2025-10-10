@@ -147,8 +147,15 @@ elements.confirmarBtn.addEventListener("click", async () => {
     const lista = invitados[codigoActual];
     const respuestas = lista.map((nombre, index) => {
       const opcion = document.querySelector(`input[name="asistencia_${index}"]:checked`);
-      return { nombre, asistencia: opcion ? opcion.value : "no_responde" };
+      return { nombre, asistencia: opcion ? opcion.value : null }; // null si no seleccionó
     });
+
+    // Validación: todos deben seleccionar sí o no
+    const sinSeleccion = respuestas.find(r => r.asistencia === null);
+    if (sinSeleccion) {
+      showError("Por favor, selecciona Sí o No para todos los invitados.");
+      return;
+    }
 
     const todosNo = respuestas.every(r => r.asistencia === "no");
     elements.listaDiv.classList.add("hidden");
@@ -181,6 +188,7 @@ elements.confirmarBtn.addEventListener("click", async () => {
       console.error("Error guardando confirmaciones:", error);
       // No mostrar error al usuario ya que la confirmación visual ya se mostró
     }
+
   } catch (error) {
     console.error('Error en confirmación:', error);
     showError("Error interno. Intenta nuevamente.");
