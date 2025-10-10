@@ -1,0 +1,85 @@
+/* ========================================
+   COMPONENTE HERO - Sección principal con video
+======================================== */
+.hero-video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.hero-video-container video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: 110%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--bg-overlay), var(--bg-overlay));
+  z-index: 1;
+}
+
+.hero-text-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: var(--space-4);
+  color: var(--text-white);
+}
+
+.hero-text-content h1 {
+  font-size: var(--text-5xl);
+  line-height: 1;
+  margin-bottom: 0;
+}
+
+.hero-text-content h2 {
+  font-size: var(--text-lg);
+  font-weight: 200;
+  margin-top: var(--space-2);
+  color: var(--text-white);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: var(--space-3);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.scroll-icon {
+  width: 36px;
+  height: 36px;
+  fill: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive */
+@media (min-width: 900px) {
+  .hero-text-content h1 {
+    font-size: var(--text-6xl);
+  }
+  
+  .hero-text-content h2 {
+    font-size: var(--text-xl);
+  }
+  
+  .hero-video-container {
+    min-height: 720px;
+  }
+}

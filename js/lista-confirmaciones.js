@@ -1,30 +1,29 @@
 // ==========================
-// CONFIGURACIÓN SUPABASE PARA LISTA DE CONFIRMACIONES
+// CONFIGURACIÓN SUPABASE PARA LISTA DE CONFIRMACIONES (usando configuración centralizada)
 // ==========================
-const SUPABASE_URL = "https://sqkluttgalypumizrrnd.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNxa2x1dHRnYWx5cHVtaXpycm5kIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk3NjQzODksImV4cCI6MjA3NTM0MDM4OX0.HjgeLkD1gmEV3psPA-jlkfmJlsJR5904vF4gieaPZnI";
+// La configuración ahora se carga desde supabase-config.js
 
 // ==========================
-// FUNCIÓN PARA CARGAR CONFIRMACIONES
+// FUNCIÓN PARA CARGAR CONFIRMACIONES (optimizada)
 // ==========================
 async function cargarConfirmaciones() {
   try {
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/confirmaciones?order=timestamp.desc`, {
-      method: "GET",
-      headers: {
-        "apikey": SUPABASE_KEY,
-        "Authorization": `Bearer ${SUPABASE_KEY}`,
-        "Content-Type": "application/json"
-      }
-    });
+    const data = await supabase.getConfirmations();
 
-    const data = await res.json();
+    // Validar datos recibidos
+    if (!Array.isArray(data)) {
+      throw new Error('Formato de datos inválido');
+    }
 
     // Filtrar solo "si" y eliminar duplicados
     const filtrados = [];
     const vistos = new Set();
 
     data.forEach(row => {
+      // Validar estructura de cada fila
+      if (!row || typeof row !== 'object') return;
+      if (!row.codigo || !row.nombre || !row.timestamp) return;
+      
       const key = `${row.codigo}-${row.nombre}`;
       if (!vistos.has(key) && row.asistencia === "si") {
         filtrados.push(row);
@@ -33,17 +32,32 @@ async function cargarConfirmaciones() {
     });
 
     const contenedor = document.getElementById("lista-confirmaciones");
+    if (!contenedor) {
+      throw new Error('Contenedor de lista no encontrado');
+    }
+
     contenedor.innerHTML = "";
+
+    if (filtrados.length === 0) {
+      contenedor.innerHTML = '<div class="card"><div class="info"><span>No hay confirmaciones aún</span></div></div>';
+      return;
+    }
 
     filtrados.forEach((row, idx) => {
       const card = document.createElement("div");
       card.className = "card fade-in";
       card.style.animationDelay = `${idx * 0.05}s`;
+      
+      // Escapar datos para seguridad
+      const codigoEscapado = escapeHtml(row.codigo);
+      const nombreEscapado = escapeHtml(row.nombre);
+      const fechaFormateada = new Date(row.timestamp).toLocaleString();
+      
       card.innerHTML = `
         <div class="info">
-          <span><strong>Código:</strong> ${row.codigo}</span>
-          <span><strong>Nombre:</strong> ${row.nombre}</span>
-          <span><strong>Fecha:</strong> ${new Date(row.timestamp).toLocaleString()}</span>
+          <span><strong>Código:</strong> ${codigoEscapado}</span>
+          <span><strong>Nombre:</strong> ${nombreEscapado}</span>
+          <span><strong>Fecha:</strong> ${fechaFormateada}</span>
         </div>
         <div class="status">✅ Asiste</div>
       `;
@@ -52,7 +66,18 @@ async function cargarConfirmaciones() {
 
   } catch (error) {
     console.error("Error cargando confirmaciones:", error);
+    const contenedor = document.getElementById("lista-confirmaciones");
+    if (contenedor) {
+      contenedor.innerHTML = '<div class="card"><div class="info"><span style="color: red;">Error cargando datos</span></div></div>';
+    }
   }
+}
+
+// Función para escapar HTML (seguridad)
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
 }
 
 // ==========================

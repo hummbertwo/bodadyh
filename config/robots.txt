@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Permitir acceso a todos los recursos estáticos
+Allow: /src/
+Allow: /src/assets/
+Allow: /src/styles/
+Allow: /src/scripts/
+
+# Bloquear archivos de configuración sensibles
+Disallow: /config/
+Disallow: /.env
+Disallow: /package.json
+
+# Sitemap (si existe)
+# Sitemap: https://tu-dominio.com/sitemap.xml
+
+# Crawl-delay para ser respetuoso con el servidor
+Crawl-delay: 1

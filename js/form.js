@@ -1,19 +1,30 @@
 // ==========================
-// CONFIGURACIÓN SUPABASE
+// CONFIGURACIÓN SUPABASE (usando configuración centralizada)
 // ==========================
-const SUPABASE_URL = "https://sqkluttgalypumizrrnd.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNxa2x1dHRnYWx5cHVtaXpycm5kIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk3NjQzODksImV4cCI6MjA3NTM0MDM4OX0.HjgeLkD1gmEV3psPA-jlkfmJlsJR5904vF4gieaPZnI";
+// La configuración ahora se carga desde supabase-config.js
 
 // ==========================
-// ELEMENTOS DEL DOM
+// ELEMENTOS DEL DOM (con validación)
 // ==========================
-const codigoInput = document.getElementById("codigo");
-const verificarBtn = document.getElementById("verificar-btn");
-const listaDiv = document.getElementById("lista-div");
-const listaInvitadosDiv = document.getElementById("lista-invitados");
-const confirmarBtn = document.getElementById("confirmar-btn");
-const resultadoDiv = document.getElementById("resultado-div");
-const mensaje = document.getElementById("mensaje");
+const elements = {
+  codigoInput: document.getElementById("codigo"),
+  verificarBtn: document.getElementById("verificar-btn"),
+  listaDiv: document.getElementById("lista-div"),
+  listaInvitadosDiv: document.getElementById("lista-invitados"),
+  confirmarBtn: document.getElementById("confirmar-btn"),
+  resultadoDiv: document.getElementById("resultado-div"),
+  mensaje: document.getElementById("mensaje")
+};
+
+// Validar que todos los elementos existen
+const missingElements = Object.entries(elements)
+  .filter(([key, element]) => !element)
+  .map(([key]) => key);
+
+if (missingElements.length > 0) {
+  console.error('Elementos DOM faltantes:', missingElements);
+  throw new Error(`Elementos requeridos no encontrados: ${missingElements.join(', ')}`);
+}
 
 let codigoActual = null;
 
@@ -68,29 +79,39 @@ function lanzarEmojis(emoji = "😢") {
 }
 
 // ==========================
-// VERIFICAR CÓDIGO
+// VERIFICAR CÓDIGO (con mejor manejo de errores)
 // ==========================
-verificarBtn.addEventListener("click", () => {
-  const codigo = codigoInput.value.trim();
-  const lista = invitados[codigo]; // lista.js
+elements.verificarBtn.addEventListener("click", () => {
+  try {
+    const codigo = elements.codigoInput.value.trim();
+    
+    // Validar código
+    if (!codigo) {
+      showError("Por favor ingresa un código");
+      return;
+    }
 
-  listaInvitadosDiv.innerHTML = "";
-  resultadoDiv.classList.add("hidden");
-  mensaje.innerText = "";
+    const lista = invitados[codigo]; // lista.js
 
-  if (!lista) {
-    alert("Código incorrecto. Verifica con los organizadores.");
-    return;
-  }
+    elements.listaInvitadosDiv.innerHTML = "";
+    elements.resultadoDiv.classList.add("hidden");
+    elements.mensaje.innerText = "";
 
-  codigoActual = codigo;
-  verificarBtn.style.display = "none";
-  listaDiv.classList.remove("hidden");
+    if (!lista) {
+      showError("Código incorrecto. Verifica con los organizadores.");
+      return;
+    }
 
-  lista.forEach((nombre, index) => {
-    listaInvitadosDiv.innerHTML += `
-      <div class="guest">
-        <label style="font-weight:bold;">${nombre}</label>
+    codigoActual = codigo;
+    elements.verificarBtn.style.display = "none";
+    elements.listaDiv.classList.remove("hidden");
+
+    // Crear elementos de forma más segura
+    lista.forEach((nombre, index) => {
+      const guestDiv = document.createElement("div");
+      guestDiv.className = "guest";
+      guestDiv.innerHTML = `
+        <label style="font-weight:bold;">${escapeHtml(nombre)}</label>
         <div style="margin-top:5px;">
           <label style="margin-right:15px;">
             <input type="radio" name="asistencia_${index}" value="si" required> ✅ Sí
@@ -99,57 +120,76 @@ verificarBtn.addEventListener("click", () => {
             <input type="radio" name="asistencia_${index}" value="no"> ❌ No
           </label>
         </div>
-      </div>
-    `;
-  });
+      `;
+      elements.listaInvitadosDiv.appendChild(guestDiv);
+    });
+  } catch (error) {
+    console.error('Error verificando código:', error);
+    showError("Error interno. Intenta nuevamente.");
+  }
 });
 
+// Función para mostrar errores de forma consistente
+function showError(message) {
+  alert(message); // Por ahora mantenemos alert, pero se puede mejorar con UI
+}
+
 // ==========================
-// CONFIRMAR ASISTENCIA
+// CONFIRMAR ASISTENCIA (optimizado)
 // ==========================
-confirmarBtn.addEventListener("click", async () => {
-  if (!codigoActual) return;
-
-  const lista = invitados[codigoActual];
-  const respuestas = lista.map((nombre, index) => {
-    const opcion = document.querySelector(`input[name="asistencia_${index}"]:checked`);
-    return { nombre, asistencia: opcion ? opcion.value : "no_responde" };
-  });
-
-  const todosNo = respuestas.every(r => r.asistencia === "no");
-  listaDiv.classList.add("hidden");
-  resultadoDiv.classList.remove("hidden");
-
-  if (todosNo) {
-    mensaje.innerText = `Qué lástima, nadie asistirá 😢`;
-    lanzarEmojis("😢");
-  } else {
-    const nombresSi = respuestas.filter(r => r.asistencia === "si").map(r => r.nombre);
-    mensaje.innerText = `Gracias ${nombresSi.join(", ")} por confirmar! 🎉`;
-    lanzarConfeti();
-  }
-
-  // ==========================
-  // GUARDAR EN SUPABASE
-  // ==========================
-  for (let r of respuestas) {
-    try {
-      await fetch(`${SUPABASE_URL}/rest/v1/confirmaciones`, {
-        method: "POST",
-        headers: {
-          "apikey": SUPABASE_KEY,
-          "Authorization": `Bearer ${SUPABASE_KEY}`,
-          "Content-Type": "application/json",
-          "Prefer": "return=representation"
-        },
-        body: JSON.stringify({
-          codigo: codigoActual,
-          nombre: r.nombre,
-          asistencia: r.asistencia
-        })
-      });
-    } catch (error) {
-      console.error("Error guardando en Supabase:", error);
+elements.confirmarBtn.addEventListener("click", async () => {
+  try {
+    if (!codigoActual) {
+      showError("No hay código válido");
+      return;
     }
+
+    const lista = invitados[codigoActual];
+    const respuestas = lista.map((nombre, index) => {
+      const opcion = document.querySelector(`input[name="asistencia_${index}"]:checked`);
+      return { nombre, asistencia: opcion ? opcion.value : "no_responde" };
+    });
+
+    const todosNo = respuestas.every(r => r.asistencia === "no");
+    elements.listaDiv.classList.add("hidden");
+    elements.resultadoDiv.classList.remove("hidden");
+
+    if (todosNo) {
+      elements.mensaje.innerText = `Qué lástima, nadie asistirá 😢`;
+      lanzarEmojis("😢");
+    } else {
+      const nombresSi = respuestas.filter(r => r.asistencia === "si").map(r => r.nombre);
+      elements.mensaje.innerText = `Gracias ${nombresSi.join(", ")} por confirmar! 🎉`;
+      lanzarConfeti();
+    }
+
+    // ==========================
+    // GUARDAR EN SUPABASE (optimizado)
+    // ==========================
+    const savePromises = respuestas.map(r => 
+      supabase.saveConfirmation({
+        codigo: codigoActual,
+        nombre: r.nombre,
+        asistencia: r.asistencia
+      })
+    );
+
+    try {
+      await Promise.all(savePromises);
+      console.log("Todas las confirmaciones guardadas exitosamente");
+    } catch (error) {
+      console.error("Error guardando confirmaciones:", error);
+      // No mostrar error al usuario ya que la confirmación visual ya se mostró
+    }
+  } catch (error) {
+    console.error('Error en confirmación:', error);
+    showError("Error interno. Intenta nuevamente.");
   }
 });
+
+// Función para escapar HTML (seguridad)
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
