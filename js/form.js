@@ -44,12 +44,25 @@ function lanzarEmojis(emoji = "😢") {
     const span = document.createElement("span");
     span.textContent = emoji;
     span.style.position = "fixed";
-    span.style.fontSize = "48px";
+    span.style.fontSize = `${24 + Math.random() * 24}px`; // tamaño variable
     span.style.zIndex = 9999;
-    span.style.left = `${Math.random() * 100}vw`;
-    span.style.bottom = "-50px";
-    span.style.animation = `floatUp ${3 + Math.random() * 2}s ease-out forwards`;
+    span.style.left = `${Math.random() * 90}vw`;
+    span.style.bottom = `-50px`;
+    span.style.pointerEvents = "none";
+    span.style.transition = "transform 5s linear, opacity 5s linear";
+    span.style.opacity = 1;
+
     document.body.appendChild(span);
+
+    // Animación
+    const finalY = -100 - Math.random() * 200; // sube más arriba
+    const rotate = Math.random() * 360;
+    requestAnimationFrame(() => {
+      span.style.transform = `translateY(${finalY}px) rotate(${rotate}deg)`;
+      span.style.opacity = 0;
+    });
+
+    // Eliminar después de 5s
     setTimeout(() => span.remove(), 5000);
   }
 }

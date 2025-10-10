@@ -165,23 +165,28 @@
   <!-- =========================
    SECCIÓN FORMULARIO DE ASISTENCIA
 ============================== -->
-<section id="confirmacion-asistencia">
-  <div class="container">
-    <h1>Confirmación de Asistencia</h1>
+<section id="confirmacion" class="form">
+  <div class="contenedor">
+    <h2 class="form-title">Confirmación de Asistencia</h2>
 
-    <div id="codigo-div" class="card">
-      <input type="text" id="codigo" placeholder="Ingresa tu código">
+    <!-- Código -->
+    <div id="codigo-div">
+      <input type="text" id="codigo" class="input" placeholder=" " />
+      <div class="cut"></div>
+      <label for="codigo" class="placeholder">Ingresa tu código</label>
       <button id="verificar-btn" class="submit">Verificar Código</button>
     </div>
 
-    <div id="lista-div" class="card hidden">
-      <h2>Selecciona asistencia</h2>
+    <!-- Lista de invitados -->
+    <div id="lista-div" class="hidden">
+      <h3>Selecciona asistencia</h3>
       <div id="lista-invitados"></div>
       <button id="confirmar-btn" class="submit">Confirmar</button>
     </div>
 
-    <div id="resultado-div" class="card hidden">
-      <h2 id="mensaje"></h2>
+    <!-- Resultado -->
+    <div id="resultado-div" class="resultado hidden">
+      <h3 id="mensaje"></h3>
       <div id="animacion" class="animacion"></div>
     </div>
   </div>
