@@ -4,16 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Invitación Boda</title>
-
-  <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=League+Spartan:wght@100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Tangerine:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/styles.css"/>
+  </head>
 
-  <!-- Estilos -->
-  <link rel="stylesheet" href="./css/styles.css" />
-</head>
 <body>
-
-  <!-- HERO CON VIDEO (pantalla completa tipo webapp) -->
+  
+ <!-- =========================
+   HERO CON VIDEO
+============================== -->
   <section class="hero-video-container">
     <video
       id="heroVideo"
@@ -24,8 +23,8 @@
       preload="auto"
       autoplay
       playsinline
-      aria-label="Video de fondo"
-    ></video>
+      aria-label="Video de fondo">
+    </video>
 
     <div class="hero-video-overlay"></div>
 
@@ -39,8 +38,9 @@
         <path d="M12 16.5l-8-8 1.41-1.41L12 13.67l6.59-6.58L20 8.5z" />
       </svg>
     </div>
-
-    <!-- Botón play/pause para canción -->
+  
+    
+  <!-- Botón play/pause para canción -->
     <div class="audio-play-button" id="audioPlayBtn" title="Reproducir canción" role="button" tabindex="0" aria-pressed="false" aria-label="Reproducir música">
       <svg id="iconPlayPause" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M8 5v14l11-7z"></path>
@@ -51,23 +51,28 @@
     <audio id="weddingSong" src="./assets/media/audio/Love On The Brain.mp3" preload="auto" aria-hidden="true"></audio>
   </section>
 
-  <!-- INVITACIÓN / INTRO (mobile-first) -->
+ <!-- =========================
+  INVITACIÓN / INTRO
+============================== -->
   <section class="seccion2">
+    <div class="animar">
+      <p>Con el amor que nos une, la bendición de Dios, y el apoyo de nuestros padres:</p>
+      <h2 class="text-padresnovia">Ramiro Sánchez Obregón Victoria Marisa Ruiz Mejía</h2>
+      <p>(Padres de la novia)</p>
+        <h2 class="text-padresnovio">Humberto Pérez Moreno ✝ Enedelia Barajas Obregón</h2>
+      <p>(Padres del novio)</p>
+    </div>
+  </section>
+
+ <!-- =========================
+  CONTADOR
+============================== -->
+  <section class="fondo-contador">
     <img src="./assets/images/flower1.png" class="flor-decorativa flor1" alt="" />
     <img src="./assets/images/flower2.png" class="flor-decorativa flor2" alt="" />
     <div class="animar">
-      <h2 class="text-uno">¡Estás Invitado!</h2>
-    </div>
-    <p>Nos encantaría que seas parte de este momento tan especial para nosotros. ¡Falta poco!</p>
-  </section>
-
-  <!-- CONTADOR -->
-  <section class="fondo-contador">
-    <div class="animar">
-      <div class="text-content-contador">
-        <p>Con el amor que nos une, la bendición de Dios y el apoyo de nuestros padres, te invitamos a celebrar nuestra boda</p>
-      </div>
       <div class="esp1-text-content">
+        <p>¡Los invitamos a celebrar nuestra boda!</p>
         <h2 class="text-cuatro">01.02.2026</h2>
         <h3>FALTAN:</h3>
       </div>
@@ -84,18 +89,25 @@
       </div>
       <div class="time-box">
         <span class="number" id="minutes">00</span>
-        <span class="label">Minutos</span>
+        <span class="label">Min</span>
       </div>
       <div class="time-box">
         <span class="number" id="seconds">00</span>
-        <span class="label">Segundos</span>
+        <span class="label">Seg</span>
       </div>
     </div>
   </section>
 
-  <div class="divider" aria-hidden="true"></div>
+ <!-- =========================
+  UBICACIONES Divide
+============================== -->
+  <section class="ubicaciones">
+      <p>Ubicaciones</p>
+  </section>
 
-  <!-- CEREMONIA -->
+ <!-- =========================
+  CEREMONIA
+============================== -->
   <section class="ceremonia">
     <div class="animar">
       <lord-icon
@@ -104,12 +116,11 @@
     delay="2000"
     colors="primary:#121331,secondary:#f4c89c"
     style="width:150px;height:150px">
-</lord-icon>
+      </lord-icon>
       <h2 class="text-dos">Ceremonia</h2>
     </div>
-    <p>Iglesia Templo Santo Domingo Savio</p>
-    <p>a las 3:00pm Hrs</p>
-
+    <p>Templo Santo Domingo Savio</p>
+    <p>3:00pm Hrs</p>
     <div style="width: 100%; max-width: 600px; margin: 1.25rem auto; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.12); border-radius:12px;">
       <iframe 
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28761.56331494694!2d-100.2627699521484!3d25.69795321399874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662954d138a3cbf%3A0x58773fabf590da87!2sTemplo%20Santo%20Domingo%20Savio!5e0!3m2!1ses!2smx!4v1752981616945!5m2!1ses!2smx" 
@@ -119,14 +130,15 @@
         allowfullscreen 
         loading="lazy" 
         referrerpolicy="no-referrer-when-downgrade"
-        aria-hidden="false"
-      ></iframe>
+        aria-hidden="false">
+      </iframe>
     </div>
-
     <a href="https://maps.app.goo.gl/mxoMxy9c2A38BK9NA" class="btn">Cómo Llegar</a>
   </section>
 
-  <!-- RECEPCIÓN -->
+ <!-- =========================
+  RECEPCIÓN
+============================== -->
   <section class="recepcion">
     <div class="animar">
     <lord-icon
@@ -134,12 +146,11 @@
      trigger="loop"
     colors="primary:#121331,secondary:#f4c89c"
     style="width:150px;height:150px">
-</lord-icon>
+    </lord-icon>
       <h2 class="text-dos">Recepción</h2>
     </div>
-    <p>Salón Elite Eventos Black</p>
-    <p>a las 7:30pm Hrs</p>
-
+    <p>Elite Eventos Salon:(Black)</p>
+    <p>7:30pm Hrs</p>
     <div style="width: 100%; max-width: 600px; margin: 1.25rem auto; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.12); border-radius:12px;">
       <iframe 
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28766.227810072767!2d-100.30512876523437!3d25.67863708400403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662bf21c80dbdfb%3A0xb30166af10fe4375!2sElite%20Eventos%20Gold!5e0!3m2!1ses!2smx!4v1752981977027!5m2!1ses!2smx" 
@@ -149,16 +160,24 @@
         allowfullscreen 
         loading="lazy" 
         referrerpolicy="no-referrer-when-downgrade"
-        aria-hidden="false"
-      ></iframe>
+        aria-hidden="false">
+      </iframe>
     </div>
-
     <a href="https://maps.app.goo.gl/cmQbFhKMeAZL4BSg7" class="btn">Cómo Llegar</a>
   </section>
 
-  <!-- GALERÍA -->
-<section class="galeria">
-  <div class="galeria-grid">
+ <!-- =========================
+  MOMENTOS Divide
+============================== -->
+  <section class="momentos">
+     <p>Nuestros Momentos</p>
+  </section>
+
+ <!-- =========================
+  GALERÍA
+============================== -->
+  <section class="galeria">
+   <div class="galeria-grid">
     <img src="./assets/images/image1.JPG" alt="Foto 1">
     <img src="./assets/images/image2.jpg" alt="Foto 2">
     <img src="./assets/images/image3.jpg" alt="Foto 3">
@@ -169,43 +188,57 @@
     <img src="./assets/images/image8.jpg" alt="Foto 8">
     <img src="./assets/images/image9.jpg" alt="Foto 9">
   </div>
-</section>
+  </section>
 
-  <!-- Vestimenta -->
+ <!-- =========================
+  VESTIMENTA
+============================== -->
   <section class="vestimenta">
     <div class="animar">
-      <h2 class="text-dos">Vestimenta</h2>
+      <h2 class="text-dos">Codigo de Vestimenta</h2>
     </div>
     <p>FORMAL</p>
     <img src="./assets/images/vestimenta.png" alt="Icono vestimenta" class="icono-vestimenta" />
   </section>
 
-  <!-- Mesa de regalos -->
+ <!-- =========================
+  MESA DE REGALOS Divide
+============================== -->
+  <section class="regalitos">
+    <p>Opciones de Regalo</p>
+  </section>
+
+ <!-- =========================
+  MESA DE REGALOS 
+============================== -->
   <section class="regalos">
-   <lord-icon
+      <h2 class="text-dos">Mesa de Regalos</h2>
+    </div>
+  <lord-icon
+    src="https://cdn.lordicon.com/apmrcxtj.json"
+    trigger="loop"
+    delay="5000"
+    state="morph-close"
+    colors="primary:#121331,secondary:#f4c89c"
+    style="width:100px;height:100px">
+</lord-icon>
+    <p>Lluvia de sobres</p>
+    <lord-icon
     src="https://cdn.lordicon.com/kezeezyg.json"
     trigger="loop"
     delay="2000"
     colors="primary:#121331,secondary:#f4c89c"
     style="width:100px;height:100px">
-</lord-icon>
-      <h2 class="text-dos">Regalos</h2>
-    </div>
-    <p>Salón Elite Eventos Black</p>
-    <p>a las 7:30pm Hrs</p>
-
-    <a href="https://maps.app.goo.gl/cmQbFhKMeAZL4BSg7" class="btn">Cómo Llegar</a>
-    <p>a las 7:30pm Hrs</p>
-    <a href="https://maps.app.goo.gl/cmQbFhKMeAZL4BSg7" class="btn">Cómo Llegar</a>
+   </lord-icon>
+    <p>Mesa de regalos liverpool</p>
+    <a href="https://maps.app.goo.gl/cmQbFhKMeAZL4BSg7" class="btn">LIVERPOOL</a>
   </section>
 
-
-
-  <!-- =========================
+ <!-- =========================
    SECCIÓN FORMULARIO DE ASISTENCIA
 ============================== -->
-<section id="confirmacion" class="form">
-  <div class="contenedor">
+  <section id="confirmacion" class="form">
+   <div class="contenedor">
     <h2 class="form-title">Confirmación de Asistencia</h2>
 
     <!-- Código -->
@@ -232,7 +265,7 @@
 </section>
 
  <!-- =========================
-   SECCIÓN Gracias
+   SECCIÓN FINAL
 ============================== -->
   <section class="gracias">
     <h2 class="text-cinco">No Niños</h2>
@@ -246,6 +279,10 @@
   <!-- SCRIPTS: orden optimizado para dependencias -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script src="https://cdn.lordicon.com/lordicon.js"></script>
+  <script
+  src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js"
+  type="module"
+></script>
   <script src="./js/supabase-config.js"></script>
   <script src="./js/lista.js"></script>
   <script src="./js/form.js"></script>

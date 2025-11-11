@@ -14,7 +14,7 @@
 
 html, body {
   height: 100%;
-  background: #fff8f2; /* tono romántico suave */
+  background: #f7eee7; /* tono romántico suave */
   color: #222;
   -webkit-text-size-adjust: 100%;
 }
@@ -22,7 +22,18 @@ html, body {
 /* ===============================
    CENTRADO GLOBAL
 =============================== */
-body, section, .contenedor, .galeria, .fondo-contador, .seccion2, .ceremonia, .recepcion, .form {
+body,
+section,
+.contenedor,
+.galeria,
+.fondo-contador,
+.seccion2,
+.ubicaciones,
+.ceremonia,
+.momentos,
+.recepcion,
+.form,
+.gracias {
   text-align: center;
 }
 
@@ -64,43 +75,90 @@ section.visible {
   transform: translateY(0);
 }
 
-/* ========================================
-   FLORES DECORATIVAS (mismo nombre)
-======================================== */
-/* Sección */
 .seccion2 {
   position: relative;    /* necesario para que las flores sean absolutas respecto a la sección */
   overflow: hidden;      /* corta todo lo que sobresalga */
-  padding: 100px 20px;    /* espacio interno para tu contenido */
-  background-color: #fff8f2; /* o el color que quieras */
+  padding: 50px 20px;    /* espacio interno para tu contenido */
+  background-color: #f7eee7; /* o el color que quieras */
 }
 
-/* Flores decorativas */
-.flor-decorativa {
-  position: absolute;
-  width: 180px;          /* tamaño real de la flor */
-  z-index: 10;
-  animation: flotando 6s ease-in-out infinite;
-  pointer-events: none;
-  opacity: 0.95;
+.fondo-contador { 
+    position: relative;    /* necesario para que las flores sean absolutas respecto a la sección */
+  overflow: hidden;      /* corta todo lo que sobresalga */
+  padding: 80px 20px;    /* espacio interno para tu contenido */
+  background-color: #f7eee7; /* o el color que quieras */
 }
 
-/* Flor izquierda: mostrar solo mitad */
-.flor1 {
-  top: 50px;             /* ajusta según tu diseño */
-  left: -120px;           /* mitad del ancho para que solo se vea la mitad */
+.ubicaciones { 
+    position: relative;    /* necesario para que las flores sean absolutas respecto a la sección */
+  overflow: hidden;      /* corta todo lo que sobresalga */
+  padding: 30px 20px;    /* espacio interno para tu contenido */
+  background-color: #f7eee7; /* o el color que quieras */
 }
 
-/* Flor derecha: mostrar solo mitad */
-.flor2 {
-  top: 50px;             /* igual que la flor1 */
-  right: -95px;          /* mitad del ancho para que solo se vea la mitad */
+.ceremonia {
+  background-color: #f7eee7; /* o el color que quieras */
+  padding: 1.5rem 1rem;
+  max-width: 1100px;
+  width: 100%;
 }
 
-/* Animación de flotando (ejemplo) */
-@keyframes flotando {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+.recepcion {
+  background-color: #f7eee7; /* o el color que quieras */
+  padding: 1.5rem 1rem;
+  max-width: 1100px;
+  width: 100%;
+}
+
+.momentos { 
+    position: relative;    /* necesario para que las flores sean absolutas respecto a la sección */
+  overflow: hidden;      /* corta todo lo que sobresalga */
+  padding: 30px 20px;    /* espacio interno para tu contenido */
+  background-color: #f7eee7; /* o el color que quieras */
+}
+
+.galeria {
+  padding: 1rem;
+  background: #f7eee7;
+}
+
+.vestimenta {
+  background-color: #f7eee7; /* o el color que quieras */
+  padding: 1.5rem 1rem;
+  max-width: 1100px;
+  width: 100%;
+}
+
+.regalitos { 
+    position: relative;    /* necesario para que las flores sean absolutas respecto a la sección */
+  overflow: hidden;      /* corta todo lo que sobresalga */
+  padding: 30px 20px;    /* espacio interno para tu contenido */
+  background-color: #f7eee7; /* o el color que quieras */
+}
+
+.regalos { 
+    position: relative;    /* necesario para que las flores sean absolutas respecto a la sección */
+  overflow: hidden;      /* corta todo lo que sobresalga */
+  padding: 30px 20px;    /* espacio interno para tu contenido */
+  background-color: #f7eee7; /* o el color que quieras */
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  z-index: 1;
+  max-width: 1200px;
+  min-height: 300px;
+  background-color: #f7eee7;
+}
+
+.gracias {
+  position: relative;    /* necesario para que las flores sean absolutas respecto a la sección */
+  overflow: hidden;      /* corta todo lo que sobresalga */
+  padding: 50px 20px;    /* espacio interno para tu contenido */
+  background-color: #f7eee7; /* o el color que quieras */
 }
 
 /* ========================================
@@ -137,9 +195,43 @@ p {
   color: #333;
 }
 
+/* ========================================
+   FLORES DECORATIVAS (mismo nombre)
+======================================== */
+
+/* Flores decorativas */
+.flor-decorativa {
+  position: absolute;
+  width: 180px;          /* tamaño real de la flor */
+  z-index: 10;
+  animation: flotando 6s ease-in-out infinite;
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+/* Flor izquierda: mostrar solo mitad */
+.flor1 {
+  top: 50px;             /* ajusta según tu diseño */
+  left: -120px;           /* mitad del ancho para que solo se vea la mitad */
+}
+
+/* Flor derecha: mostrar solo mitad */
+.flor2 {
+  top: 50px;             /* igual que la flor1 */
+  right: -95px;          /* mitad del ancho para que solo se vea la mitad */
+}
+
+/* Animación de flotando (ejemplo) */
+@keyframes flotando {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+
 /* texto específicos (no cambiar nombres) */
-.text-uno { font-family: "Imperial Script", cursive; font-size: 3.6rem; color:#1a1a1a; }
-.text-dos { font-family: "Imperial Script", cursive; font-size: 3.9rem; color:#1a1a1a; }
+.text-padresnovia { font-family: "Imperial Script", cursive; font-size: 2.1rem; color:#1a1a1a; }
+.text-padresnovio { font-family: "Imperial Script", cursive; font-size: 2.2rem; color:#1a1a1a; }
+.text-dos { font-family: "Imperial Script", cursive; font-size: 2.5rem; color:#1a1a1a; }
 .text-tres { font-size: 1.25rem; color:#111; }
 .text-cuatro { font-family: "Tangerine", cursive; font-size: 5.6rem; color:#111; }
 .text-cinco { font-family: "Tangerine", cursive; font-size: 2.2rem; color:#111; }
@@ -191,8 +283,8 @@ p {
   color: #fff;
 }
 
-.hero-text-content h1 { font-size: 3rem; line-height: 1; margin-bottom: 0; }
-.hero-text-content h2 { font-size: 1.05rem; font-weight: 200; margin-top: 6px; color: #fff; }
+.hero-text-content h1 { font-size: 4rem; line-height: 1; margin-bottom: 0; }
+.hero-text-content h2 { font-size: 1.8rem; font-weight: 200; margin-top: 6px; color: #fff; }
 
 /* indicador de scroll (discreto) */
 .scroll-indicator { 
@@ -244,10 +336,10 @@ p {
 
 .audio-play-button svg { width: 22px; height: 22px; fill:#111; }
 
+
 /* ========================================
    CONTADOR (mantener estructura)
 ======================================== */
-.fondo-contador { padding-top: 2rem; padding-bottom: 2rem; }
 .countdown {
   display: flex;
   gap: 0.6rem;
@@ -271,19 +363,6 @@ p {
 /* ========================================
    CEREMONIA / RECEPCION (mapas y btn)
 ======================================== */
-.ceremonia, .recepcion {
-  background-color: #fff8f2; /* o el color que quieras */
-  padding: 1.5rem 1rem;
-  max-width: 1100px;
-  width: 100%;
-}
-
-.vestimenta {
-  background-color: #fff8f2; /* o el color que quieras */
-  padding: 1.5rem 1rem;
-  max-width: 1100px;
-  width: 100%;
-}
 
 .icono-recepcion { 
   width: 80px; 
@@ -298,6 +377,15 @@ p {
   display:block; 
   margin: 0 auto 8px;
 }
+
+
+.reg { 
+    position: relative;    /* necesario para que las flores sean absolutas respecto a la sección */
+  overflow: hidden;      /* corta todo lo que sobresalga */
+  padding: 30px 20px;    /* espacio interno para tu contenido */
+  background-color: #fff8f2; /* o el color que quieras */
+}
+
 
 .mapa iframe {
   width: 100%;
@@ -325,10 +413,6 @@ p {
 /* ========================================
    GALERÍA
 ======================================== */
-.galeria {
-  padding: 1rem;
-  background: #fff9f5;
-}
 
 .galeria-grid {
   display: grid;
@@ -365,15 +449,6 @@ p {
 /* ========================================
    FORMULARIO
 ======================================== */
-.form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  z-index: 1;
-  max-width: 1200px;
-  min-height: 300px;
-}
 
 .contenedor {
   background: #fff;
@@ -509,16 +584,36 @@ p {
 /* ========================================
    RESPONSIVE (tableta y desktop)
 ======================================== */
-@media (min-width: 600px) {
-  .galeria-grid img { height: 130px; }
-  .galeria-grid { gap: 12px; }
-  .time-box { min-width: 80px; }
+/* Ajuste para pantallas grandes */
+@media (min-width: 900px) {
+  section {
+    padding: 4rem 2rem;
+  }
+
+  .vestimenta,
+  .recepcion,
+  .ceremonia,
+  .form {
+    width: 100%;
+    max-width: 100%;
+  }
+
 }
 
-@media (min-width: 900px) {
-  .hero-text-content h1 { font-size: 4.2rem; }
-  .hero-text-content h2 { font-size: 1.2rem; }
-  .galeria-grid { grid-template-columns: repeat(4, 1fr); }
-  .contenedor { max-width: 520px; padding: 26px; }
-  .hero-video-container { min-height: 720px; }
+/* Ajuste para pantallas pequeñas (mobile) */
+@media (max-width: 600px) {
+  section {
+    width: 100%;
+    padding: 2rem 1rem;
+  }
+
+  .contenedor
+   {
+    width: 100%;
+    max-width: 95%;
+  }
+
+  h1, h2, h3, p {
+    text-align: center;
+  }
 }

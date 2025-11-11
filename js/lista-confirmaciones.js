@@ -1,11 +1,6 @@
 // ==========================
 // CONFIGURACIÓN SUPABASE PARA LISTA DE CONFIRMACIONES (usando configuración centralizada)
 // ==========================
-// La configuración ahora se carga desde supabase-config.js
-
-// ==========================
-// FUNCIÓN PARA CARGAR CONFIRMACIONES (optimizada)
-// ==========================
 async function cargarConfirmaciones() {
   try {
     const data = await supabase.getConfirmations();

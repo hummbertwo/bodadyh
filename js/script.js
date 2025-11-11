@@ -8,7 +8,7 @@ const observer = new IntersectionObserver(entries => {
       entry.target.classList.add('visible');
     }
   });
-}, { threshold: 0.6 });
+}, { threshold: 0.3 });
 
 sections.forEach(section => observer.observe(section));
 
@@ -23,7 +23,7 @@ const observerAnimacion = new IntersectionObserver(entries => {
     }
   });
 }, {
-  threshold: 0.6
+  threshold: 0.3
 });
 
 elementosAnimar.forEach(elemento => observerAnimacion.observe(elemento));
