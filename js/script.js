@@ -151,6 +151,24 @@ if (elementsExist) {
     countdownElements.seconds.textContent = seconds.toString().padStart(2, '0');
   }
 
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  document.querySelectorAll(".galeria-grid img").forEach(img => {
+    img.addEventListener("click", () => {
+      lightboxImg.src = img.src;
+      lightbox.style.display = "flex";
+    });
+  });
+
+  // Cerrar al hacer clic
+  lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+
+  
   // Iniciar countdown solo si los elementos existen
   updateCountdown(); // ejecuta la primera vez inmediatamente
   countdownInterval = setInterval(updateCountdown, 1000);
