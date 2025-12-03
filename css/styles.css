@@ -271,7 +271,7 @@ p {
 
 
 /* texto específicos (no cambiar nombres) */
-.text-padresnovia { font-family: "Imperial Script", cursive; font-size: 2.3rem; color:#1a1a1a; }
+.text-padresnovia { font-family: "Imperial Script", cursive; font-size: 2.2rem; color:#1a1a1a; }
 .text-padresnovio { font-family: "Imperial Script", cursive; font-size: 2.2rem; color:#1a1a1a; }
 .text-dos { font-family: "Imperial Script", cursive; font-size: 2.5rem; color:#1a1a1a; }
 .text-tres { font-size: 1.25rem; color:#111; }
@@ -415,7 +415,7 @@ p {
 }
 
 .icono-vestimenta { 
-  width: 180px; 
+  width: 250px; 
   height: auto; 
   display:block; 
   margin: 0 auto 8px;
