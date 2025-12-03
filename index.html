@@ -4,12 +4,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Invitación Boda</title>
+      <!-- Open Graph para WhatsApp, Facebook -->
+    <meta property="og:title" content="Humberto & Daniela" />
+    <meta property="og:description" content="Información del Evento." />
+    <meta property="og:image" content="https://invitacion16nov.vercel.app/img/preview.jpg" />
+    <meta property="og:url" content="https://invitacion16nov.vercel.app" />
+    <meta property="og:type" content="website" />
+
+    <!-- Para Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Humberto & Daniela" />
+    <meta name="twitter:description" content="Información del Evento." />
+    <meta name="twitter:image" content="https://invitacion16nov.vercel.app/img/preview.jpg" />
   <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=League+Spartan:wght@100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Tangerine:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./css/styles.css"/>
   </head>
 
 <body>
-  
+  <div class="envelope-container">
+
+    <!-- Parte superior (con el sello) -->
+    <div class="top" id="top">
+        <img src="assets/images/top.png" alt="Sobre arriba" />
+    </div>
+
+    <!-- Parte inferior -->
+    <div class="bottom" id="bottom">
+        <img src="assets/images/bottom.png" alt="Sobre abajo" />
+    </div>
+
+</div>
  <!-- =========================
    HERO CON VIDEO
 ============================== -->
@@ -150,7 +174,8 @@
     </lord-icon>
       <h2 class="text-dos">Recepción</h2>
     </div>
-    <p>Elite Eventos Salon:(Black)</p>
+    <p>Elite Eventos</p>
+     <p>Salon: Black</p>
     <p>7:30pm Hrs</p>
     <div style="width: 100%; max-width: 600px; margin: 1.25rem auto; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.12); border-radius:12px;">
       <iframe 
@@ -189,10 +214,22 @@
     <img src="./assets/images/image8.jpg" alt="Foto 8">
     <img src="./assets/images/image9.jpg" alt="Foto 9">
   </div>
-      <!-- Lightbox (visor de imagen) -->
-  <div class="lightbox" id="lightbox">
-    <img id="lightbox-img" src="" alt="Imagen ampliada">
-  </div>
+ <!-- Lightbox con carrusel -->
+<div class="lightbox" id="lightbox">
+  
+  <!-- Botón cerrar -->
+  <span class="cerrar" id="cerrar">✕</span>
+
+  <!-- Flecha izquierda -->
+  <span class="flecha left" id="prev">❮</span>
+
+  <!-- Imagen principal -->
+  <img id="lightbox-img" src="" alt="Imagen ampliada">
+
+  <!-- Flecha derecha -->
+  <span class="flecha right" id="next">❯</span>
+
+</div>
   </section>
 
  <!-- =========================

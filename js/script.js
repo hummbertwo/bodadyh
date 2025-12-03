@@ -150,25 +150,7 @@ if (elementsExist) {
     countdownElements.minutes.textContent = minutes.toString().padStart(2, '0');
     countdownElements.seconds.textContent = seconds.toString().padStart(2, '0');
   }
-
-
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-
-  document.querySelectorAll(".galeria-grid img").forEach(img => {
-    img.addEventListener("click", () => {
-      lightboxImg.src = img.src;
-      lightbox.style.display = "flex";
-    });
-  });
-
-  // Cerrar al hacer clic
-  lightbox.addEventListener("click", () => {
-    lightbox.style.display = "none";
-  });
-
-
-  
+ 
   // Iniciar countdown solo si los elementos existen
   updateCountdown(); // ejecuta la primera vez inmediatamente
   countdownInterval = setInterval(updateCountdown, 1000);
@@ -176,4 +158,86 @@ if (elementsExist) {
   console.warn('Elementos del countdown no encontrados');
 }
 
+  const images = Array.from(document.querySelectorAll(".galeria-grid img"));
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  const btnPrev = document.getElementById("prev");
+  const btnNext = document.getElementById("next");
+  const btnCerrar = document.getElementById("cerrar");
+
+  let indexActual = 0;
+
+  // Abrir el carrusel con la imagen correcta
+  images.forEach((img, index) => {
+    img.addEventListener("click", () => {
+      indexActual = index;
+      abrirImagen();
+    });
+  });
+
+  function abrirImagen() {
+    lightboxImg.src = images[indexActual].src;
+    lightbox.style.display = "flex";
+  }
+
+  function cerrarLightbox() {
+    lightbox.style.display = "none";
+  }
+
+  // Navegar
+  btnNext.addEventListener("click", () => {
+    indexActual = (indexActual + 1) % images.length;
+    abrirImagen();
+  });
+
+  btnPrev.addEventListener("click", () => {
+    indexActual = (indexActual - 1 + images.length) % images.length;
+    abrirImagen();
+  });
+
+  // Cerrar con la X
+  btnCerrar.addEventListener("click", cerrarLightbox);
+
+  // Cerrar si hace click fuera de la imagen
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      cerrarLightbox();
+    }
+  });
+
+  // Cerrar con la tecla ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") cerrarLightbox();
+  });
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const topPart = document.getElementById("top");
+  const bottomPart = document.getElementById("bottom");
+  const envelope = document.querySelector(".envelope-container");
+
+  // Bloquear scroll al inicio
+  document.body.classList.add("no-scroll");
+
+  topPart.addEventListener("click", () => {
+    
+    // Animación abrir
+    topPart.style.transform = "translateY(-100%)";
+    bottomPart.style.transform = "translateY(100%)";
+
+    // Esperar animación y quitar overlay
+    setTimeout(() => {
+      envelope.style.display = "none";
+
+      // Activar scroll
+      document.body.classList.remove("no-scroll");
+    }, 1400);
+
+  });
+
+});
 
