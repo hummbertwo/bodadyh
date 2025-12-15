@@ -271,14 +271,18 @@ p {
 
 
 /* texto específicos (no cambiar nombres) */
-.text-padresnovia { font-family: "Imperial Script", cursive; font-size: 2.2rem; color:#1a1a1a; }
-.text-padresnovio { font-family: "Imperial Script", cursive; font-size: 2.2rem; color:#1a1a1a; }
+.text-padresnovia { font-family: "Edu NSW ACT Cursive", cursive; font-size: 1.2rem; color:#1a1a1a; }
+.text-padresnovio { font-family: "Edu NSW ACT Cursive", cursive; font-size: 1.2rem; color:#1a1a1a; }
+.text-novia { font-family: "League Spartan", sans-serif; font-size: 1.2rem; color:#000000; }
+.text-novio { font-family: "League Spartan", sans-serif; font-size: 1.2rem; color:#000000; }
 .text-dos { font-family: "Imperial Script", cursive; font-size: 2.5rem; color:#1a1a1a; }
 .text-tres { font-size: 1.25rem; color:#111; }
 .text-cuatro { font-family: "Tangerine", cursive; font-size: 5.6rem; color:#f7eee7; }
-.text-cinco { font-family: "Tangerine", cursive; font-size: 2.2rem; color:#111; }
+.text-cinco { font-family: "Edu NSW ACT Cursive", cursive; font-size: 1.0rem; color:#111; }
 .text-seis { font-family: "Tangerine", cursive; font-size: 2.35rem; color:#111; }
 .text-siete { font-family: "League Spartan", sans-serif; font-size: 1.3rem; color:#f7eee7; }
+.frase1 { font-family: "League Spartan", sans-serif; font-size: 1.6rem; color:#000000; }
+.frase2 { font-family: "Tangerine", cursive; font-size: 1.8rem; color:#000000; }
 
 /* ========================================
    HERO: VIDEO Y OVERLAY (FULLSCREEN para webapp)
