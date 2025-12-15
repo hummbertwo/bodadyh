@@ -181,7 +181,7 @@ section.visible {
 .regalos { 
     position: relative;    /* necesario para que las flores sean absolutas respecto a la sección */
   overflow: hidden;      /* corta todo lo que sobresalga */
-  padding: 30px 20px;    /* espacio interno para tu contenido */
+  padding: 80px 20px;    /* espacio interno para tu contenido */
   background-color: #f7eee7; /* o el color que quieras */
 }
 
@@ -191,6 +191,7 @@ section.visible {
   gap: 1rem;
   justify-content: center;
   z-index: 1;
+  padding: 50px 20px;
   max-width: 1200px;
   min-height: 300px;
   background-color: #f7eee7;
@@ -199,7 +200,7 @@ section.visible {
 .gracias {
   position: relative;    /* necesario para que las flores sean absolutas respecto a la sección */
   overflow: hidden;      /* corta todo lo que sobresalga */
-  padding: 50px 20px;    /* espacio interno para tu contenido */
+  padding: 100px 20px;    /* espacio interno para tu contenido */
   background-color: #f7eee7; /* o el color que quieras */
 }
 

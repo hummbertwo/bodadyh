@@ -8,7 +8,7 @@ const observer = new IntersectionObserver(entries => {
       entry.target.classList.add('visible');
     }
   });
-}, { threshold: 0.3 });
+}, { threshold: 0.2 });
 
 sections.forEach(section => observer.observe(section));
 
@@ -23,7 +23,7 @@ const observerAnimacion = new IntersectionObserver(entries => {
     }
   });
 }, {
-  threshold: 0.3
+  threshold: 0.2
 });
 
 elementosAnimar.forEach(elemento => observerAnimacion.observe(elemento));
@@ -58,22 +58,6 @@ if (!audio || !btn || !icon) {
       console.log("Autoplay bloqueado, esperando interacción.");
     });
   };
-
-  // Play audio on user interaction (except button)
-  document.addEventListener('click', (e) => {
-    if (!isPlaying && !btn.contains(e.target)) {
-      audio.play().then(() => {
-        const pathElement = icon.querySelector('path');
-        if (pathElement) {
-          pathElement.setAttribute('d', pauseIconPath);
-        }
-        btn.title = "Pausar canción";
-        isPlaying = true;
-      }).catch(() => {
-        console.log("Reproducción aún bloqueada.");
-      });
-    }
-  });
 
   // Toggle play/pause with button
   btn.addEventListener('click', () => {
