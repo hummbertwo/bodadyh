@@ -173,8 +173,7 @@ elements.confirmarBtn.addEventListener("click", async () => {
     const todosNo = respuestas.every(r => r.asistencia === "no");
 
     if (todosNo) {
-      elements.mensaje.innerText = "Qué lástima, nadie asistirá 😢";
-      lanzarEmojis("😢");
+      elements.mensaje.innerText = "Gracias, nos vemos luego";
     } else {
       const nombresSi = respuestas
         .filter(r => r.asistencia === "si")
