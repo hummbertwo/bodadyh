@@ -154,6 +154,9 @@ elements.confirmarBtn.addEventListener("click", async () => {
     return;
   }
 
+  // 🔒 Bloqueo para evitar doble envío
+  elements.confirmarBtn.disabled = true;
+
   elements.listaDiv.classList.add("hidden");
   elements.resultadoDiv.classList.remove("hidden");
 
@@ -171,18 +174,22 @@ elements.confirmarBtn.addEventListener("click", async () => {
     lanzarConfeti();
   }
 
-// ==========================
-// GUARDAR EN GOOGLE SHEETS
-// ==========================
-try {
-  const result = await confirmarAsistenciaGoogle(codigoActual, respuestas);
+  // ==========================
+  // ENVIAR A GOOGLE SHEETS
+  // ==========================
+  try {
+    const result = await confirmarAsistenciaGoogle(codigoActual, respuestas);
 
-  if (!result.ok && result.reason === "YA_CONFIRMADO") {
+    if (!result.ok) {
+      elements.mensaje.innerText = "⚠️ " + (result.mensaje || "Error al guardar");
+      return;
+    }
+
+    console.log("Asistencia registrada correctamente");
+
+  } catch (error) {
+    console.error("Error enviando a Google Sheets:", error);
     elements.mensaje.innerText =
-      "⚠️ Este código ya fue confirmado anteriormente.";
-    return;
+      "❌ Error de conexión. Intenta más tarde.";
   }
-} catch (error) {
-  console.error("Error enviando a Google Sheets:", error);
-}
 });
