@@ -2,7 +2,7 @@
 // CONFIGURACIÓN GOOGLE APPS SCRIPT
 // ==========================
 const APPS_SCRIPT_URL =
-  "hhttps://script.google.com/macros/s/AKfycbws0etyxiwL5zwQmMh_G2zrJB1cIw4urhZUE0XZRp-zebOLdsuSIRFoxPLzhq6L8cb7Cw/exec";
+  "https://script.google.com/macros/s/AKfycbzmecnzwR08UrmpthjT0uVp0m5nPtaP7t26Gzoq125L8IKzkyKLxwq83hUGI4MFEiWf2Q/exec";
 
 async function confirmarAsistenciaGoogle(codigo, respuestas) {
   const res = await fetch(APPS_SCRIPT_URL, {
