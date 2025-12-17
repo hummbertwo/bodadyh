@@ -2,12 +2,11 @@
 // CONFIGURACIÓN GOOGLE APPS SCRIPT
 // ==========================
 const APPS_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbyV71xzVeNj9Plu8e5PyZweeCTm-vEZyDBWJvwEcIqhiK_gTyV-nyYWmKaqlxSvqRAASA/exec";
+  "https://script.google.com/macros/s/AKfycbyESmOptyPaws0d_1GhYkvxLvyyGjKAxumZTWSA7QZyuxhuIr0ylw83O94FZN33GrZVyg/exec";
 
 async function confirmarAsistenciaGoogle(codigo, respuestas) {
   const res = await fetch(APPS_SCRIPT_URL, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ codigo, respuestas })
   });
   return await res.json();
@@ -61,15 +60,11 @@ function lanzarEmojis(emoji = "😢") {
     span.style.bottom = `-50px`;
     span.style.pointerEvents = "none";
     span.style.transition = "transform 5s linear, opacity 5s linear";
-    span.style.opacity = 1;
 
     document.body.appendChild(span);
 
-    const finalY = -100 - Math.random() * 200;
-    const rotate = Math.random() * 360;
-
     requestAnimationFrame(() => {
-      span.style.transform = `translateY(${finalY}px) rotate(${rotate}deg)`;
+      span.style.transform = `translateY(-300px) rotate(${Math.random() * 360}deg)`;
       span.style.opacity = 0;
     });
 
@@ -101,7 +96,7 @@ elements.verificarBtn.addEventListener("click", () => {
     return;
   }
 
-  const lista = invitados[codigo]; // lista.js
+  const lista = invitados[codigo];
 
   if (!lista) {
     showError("Código incorrecto. Verifica con los organizadores.");
@@ -154,38 +149,40 @@ elements.confirmarBtn.addEventListener("click", async () => {
     return;
   }
 
-  // 🔒 Bloqueo para evitar doble envío
   elements.confirmarBtn.disabled = true;
 
-  elements.listaDiv.classList.add("hidden");
-  elements.resultadoDiv.classList.remove("hidden");
-
-  const todosNo = respuestas.every(r => r.asistencia === "no");
-
-  if (todosNo) {
-    elements.mensaje.innerText = "Qué lástima, nadie asistirá 😢";
-    lanzarEmojis("😢");
-  } else {
-    const nombresSi = respuestas
-      .filter(r => r.asistencia === "si")
-      .map(r => r.nombre);
-    elements.mensaje.innerText =
-      `Gracias ${nombresSi.join(", ")} por confirmar 🎉`;
-    lanzarConfeti();
-  }
-
-  // ==========================
-  // ENVIAR A GOOGLE SHEETS
-  // ==========================
   try {
     const result = await confirmarAsistenciaGoogle(codigoActual, respuestas);
 
-    if (!result.ok) {
-      elements.mensaje.innerText = "⚠️ " + (result.mensaje || "Error al guardar");
+    // 🔒 CÓDIGO YA CONFIRMADO
+    if (!result.ok && result.reason === "YA_CONFIRMADO") {
+      elements.mensaje.innerText =
+        "⚠️ Este código ya fue confirmado anteriormente.";
+      elements.resultadoDiv.classList.remove("hidden");
       return;
     }
 
-    console.log("Asistencia registrada correctamente");
+    if (!result.ok) {
+      elements.mensaje.innerText = "❌ Error al guardar la información.";
+      return;
+    }
+
+    elements.listaDiv.classList.add("hidden");
+    elements.resultadoDiv.classList.remove("hidden");
+
+    const todosNo = respuestas.every(r => r.asistencia === "no");
+
+    if (todosNo) {
+      elements.mensaje.innerText = "Qué lástima, nadie asistirá 😢";
+      lanzarEmojis("😢");
+    } else {
+      const nombresSi = respuestas
+        .filter(r => r.asistencia === "si")
+        .map(r => r.nombre);
+      elements.mensaje.innerText =
+        `Gracias ${nombresSi.join(", ")} por confirmar 🎉`;
+      lanzarConfeti();
+    }
 
   } catch (error) {
     console.error("Error enviando a Google Sheets:", error);
