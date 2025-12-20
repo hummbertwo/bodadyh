@@ -5,7 +5,7 @@ const invitados = {
   "DS287": ["Julián Puente", "Edith Sánchez","Israel Puente","Said Puente","Tiana Puente","David Puente"],
   "DS659": ["Daniel Castañeda", "Mónica Sánchez","Ivander Castañeda","Irvin Castañeda","Ivanna Castañeda"],
   "DS432": ["Mireya González"],
-  "DS920": ["Denisse Ruiz"],
+  "DS930": ["Denisse Ruiz"],
   "DS375": ["Félix Ruiz", "Mayra González"],
   "DS246": ["Fabián González", "Argelia Torres"],
   "DS801": ["Miguel Silva", "Ma. de la Luz Ruiz"],
