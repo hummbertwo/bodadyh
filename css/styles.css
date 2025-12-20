@@ -55,47 +55,83 @@ section,
   justify-items: center;
 }
 
-/* ============= SOBRE LOADING FULLSCREEN ============= */
-.envelope-container {
-  position: fixed;        /* SIEMPRE ENCIMA */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 99999;         /* Más alto que todo */
-  overflow: hidden;
-  background: transparent; /* ahora NO tapa nada */
-  display: flex;
-  flex-direction: column;
-}
+/* ================================
+   ENVELOPE LOADER
+================================ */
+        /* Bloqueo de scroll controlado por JS */
+        body.no-scroll {
+            overflow: hidden !important;
+        }
 
-/* Ambas mitades ocupan exactamente la mitad */
-.top, .bottom {
-  position: absolute;
-  width: 100%;
-  height: 100vh;   /* Mitad exacta */
-  overflow: hidden;
-  transition: transform 1.3s ease-in-out;
-}
+        /* ================================
+           EFECTO BLUR PARA DESKTOP
+        ================================ */
+        #main-content {
+            transition: filter 1.2s ease-in-out;
+        }
 
-.top { z-index: 100000; }
-.bottom { z-index: 99998; }
+        /* Solo aplicamos blur inicialmente si es desktop (se controla con JS para mayor precisión) */
+        body.is-desktop #main-content {
+            filter: blur(20px);
+        }
 
-/* Imágenes responsivas */
-.top img,
-.bottom img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
+        body.is-desktop.content-ready #main-content {
+            filter: blur(0);
+        }
 
-/* Evitar scroll mientras el sobre está cerrado */
-body.no-scroll {
-  overflow: hidden !important;
-  height: 100vh;
-}
+        /* ================================
+           SOBRE (SOLO MOBILE)
+        ================================ */
+        .envelope-container {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 99999;
+            overflow: hidden;
+            background: transparent;
+            pointer-events: auto;
+            display: none; /* Oculto por defecto */
+        }
+
+        /* Mostrar solo en pantallas pequeñas */
+        @media (max-width: 767px) {
+            .envelope-container {
+                display: block;
+            }
+        }
+
+        .envelope-container.is-open {
+            pointer-events: none;
+        }
+
+        .top,
+        .bottom {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            transition: transform 1.1s cubic-bezier(0.7, 0, 0.3, 1);
+            cursor: pointer;
+        }
+
+        .top { top: 0; z-index: 100000; }
+        .bottom { bottom: 0; z-index: 99998; }
+
+        .top img, .bottom img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .top img { object-position: bottom; }
+        .bottom img { object-position: top; }
+
+        /* Animación de apertura */
+        .is-open .top { transform: translateY(-100%); }
+        .is-open .bottom { transform: translateY(100%); }
 
 /* ========================================
    MOBILE-FIRST: SECCIONES
