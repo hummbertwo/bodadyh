@@ -197,31 +197,41 @@ if (elementsExist) {
 
 
 
-
 document.addEventListener("DOMContentLoaded", () => {
+            const envelope = document.getElementById("envelope");
+            const isMobile = window.innerWidth < 768;
+            let abierto = false;
 
-  const topPart = document.getElementById("top");
-  const bottomPart = document.getElementById("bottom");
-  const envelope = document.querySelector(".envelope-container");
+            if (!isMobile) {
+                // LÓGICA DESKTOP: Solo Blur
+                document.body.classList.add("is-desktop");
+                
+                // Esperamos un momento y quitamos el blur
+                setTimeout(() => {
+                    document.body.classList.add("content-ready");
+                    document.body.classList.remove("no-scroll");
+                }, 500); // Tiempo que dura el blur antes de desvanecerse
+            } else {
+                // LÓGICA MOBILE: Sobre
+                document.body.classList.add("no-scroll");
 
-  // Bloquear scroll al inicio
-  document.body.classList.add("no-scroll");
+                function abrirEnvelope() {
+                    if (abierto) return;
+                    abierto = true;
 
-  topPart.addEventListener("click", () => {
-    
-    // Animación abrir
-    topPart.style.transform = "translateY(-100%)";
-    bottomPart.style.transform = "translateY(100%)";
+                    envelope.classList.add("is-open");
 
-    // Esperar animación y quitar overlay
-    setTimeout(() => {
-      envelope.style.display = "none";
+                    setTimeout(() => {
+                        document.body.classList.remove("no-scroll");
+                    }, 400); 
 
-      // Activar scroll
-      document.body.classList.remove("no-scroll");
-    }, 1400);
+                    setTimeout(() => {
+                        envelope.remove();
+                    }, 1200);
+                }
 
-  });
-
-});
+                envelope.addEventListener("click", abrirEnvelope);
+                setTimeout(abrirEnvelope, 2000);
+            }
+        });
 
