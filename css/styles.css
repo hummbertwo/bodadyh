@@ -337,7 +337,7 @@ p {
 /* indicador de scroll (discreto) */
 .scroll-indicator { 
   position: absolute; 
-  bottom: 12px; 
+  top: 800px;              /* ⬅️ antes era bottom */
   left: 50%; 
   transform: translateX(-50%); 
   z-index: 2;
