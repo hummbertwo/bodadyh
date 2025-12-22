@@ -133,7 +133,6 @@ section,
         .is-open .top { transform: translateY(-100%); }
         .is-open .bottom { transform: translateY(100%); }
 
-
 /* ========================================
    MOBILE-FIRST: SECCIONES
 ======================================== */
@@ -373,12 +372,12 @@ p {
 
 /* indicador de scroll (discreto) */
 .scroll-indicator { 
-  position: absolute; 
-  top: 800px;              /* ⬅️ antes era bottom */
-  left: 50%; 
-  transform: translateX(-50%); 
-  z-index: 2;
-  animation: scrollBounce 2s ease-in-out infinite;
+   position: absolute; 
+   bottom: 12px; left: 50%; 
+   transform: translateX(-50%); 
+   z-index: 2; animation: 
+   scrollBounce 2s 
+   ease-in-out infinite; 
 }
 
 .scroll-icon { 

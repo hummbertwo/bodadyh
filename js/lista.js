@@ -1,11 +1,12 @@
 // Lista de códigos y nombres
 const invitados = {
+  // Lista de códigos Novia
   "HD123": ["Humberto Perez", "Daniela Sanchez"],
   "DS104": ["Ramiro Sánchez", "Victoria Ruiz"],
   "DS287": ["Julián Puente", "Edith Sánchez","Israel Puente","Said Puente","Tiana Puente","David Puente"],
   "DS659": ["Daniel Castañeda", "Mónica Sánchez","Ivander Castañeda","Irvin Castañeda","Ivanna Castañeda"],
   "DS432": ["Mireya González"],
-  "DS920": ["Denisse Ruiz"],
+  "DS930": ["Denisse Ruiz"],
   "DS375": ["Félix Ruiz", "Mayra González"],
   "DS246": ["Fabián González", "Argelia Torres"],
   "DS801": ["Miguel Silva", "Ma. de la Luz Ruiz"],
@@ -38,7 +39,7 @@ const invitados = {
   "DS783": ["Mónica Martínez", "1 Acompañante"],
   "DS346": ["Sandra Sánchez", "1 Acompañante"],
   "DS905": ["Juvencio Puente", "Rosy Silva"],
-  "DS172": ["Marlene Rodríguez"],
+  "DS172": ["Marlene Sánchez"],
   "DS469": ["Javier Méndez", "Liliana Padilla"],
   "DS830": ["César Castellanos", "1 Acompañante"],
   "DS597": ["Mauricio Muñiz", "1 Acompañante"],
@@ -52,13 +53,36 @@ const invitados = {
   "DS702": ["Cinthia Morales", "1 Acompañante"],
   "DS336": ["Melissa Ibarra", "1 Acompañante"],
   "DS861": ["Ana Benavides", "1 Acompañante"],
-  "DS495": ["Sandra Olalde", "Rubén"],
+  "DS495": ["Sandra Olalde", "Rubén Rodríguez"],
   "DS178": ["Evelyn Gamez", "1 Acompañante"],
   "DS924": ["Sofia Santiago", "1 Acompañante"],
-  "DS607": ["Kevin Moncada", "1 Acompañante"],
+  "DS607": ["Kevin Moncada", "Aylin Medellin"],
   "DS259": ["Sebastián Cervantes", "1 Acompañante"],
   "DS713": ["Daniela Vazquez", "1 Acompañante"],
   "DS384": ["Paola Nuñez", "1 Acompañante"],
-  "DS950": ["Sergio Esquivel", "Vanessa"],
+  "DS950": ["Sergio Garcia", "Vanessa Garcia"],
   "DS526": ["Daniel Tovar", "1 Acompañante"]
+  // Lista de códigos Novio
+  "HP010": ["Enedelia Obregón"]
+  "HP019": ["Ma. Elena Martínez"]
+  "HP058": ["Alberto Garza", "Karina Pérez", "Alberto Garza", "Lilian Garza"]
+  "HP091": ["Alejandro Rodríguez", "Marlene Pérez", "Andree González"]
+  "HP115": ["Verónica Obregón", "Jaime Estrada"]
+  "HP163": ["Noé Cardenas", "1 Acompañante"]
+  "HP198": ["Héctor Obregón", "Xochitl Gomez"]
+  "HP221": ["Rosy Martínez", "1 Acompañante"]
+  "HP268": ["Paula Martínez", "1 Acompañante"]
+  "HP305": ["Reynol Villarreal", "Janeth"]
+  "HP329": ["Sergio Muñiz", "Ivette Escamilla"]
+  "HP358": ["Andrés Vazquez", "Katia Salas"]
+  "HP407": ["Gustavo Hernández", "Michelle Martínez"]
+  "HP446": ["Mauricio Garza", "Sra de Garza"]
+  "HP478": ["Aarón Ruiz", "Sandra Garcia"]
+  "HP522": ["Diego Oropeza", "1 Acompañante"]
+  "HP547": ["Luis Oropeza", "1 Acompañante"]
+  "HP632": ["Oscar Ramírez", "1 Acompañante"]
+  "HP671": ["Daniel Rodríguez", "Elizabeth Martínez"]
+  "HP799": ["Daniel Moreno", "Isa Lara"]
+  "HP888": ["Iván Fragoso", "Yisell Guerrero"]
+  "HP934": ["Félix Morado", "1 Acompañante"]
 };
