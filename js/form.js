@@ -149,13 +149,25 @@ elements.confirmarBtn.addEventListener("click", async () => {
     return;
   }
 
+  // 🔒 BLOQUEAR BOTÓN
   elements.confirmarBtn.disabled = true;
+
+  // 🔄 LOADING ANIMADO
+  const textoOriginal = elements.confirmarBtn.innerText;
+  let puntos = 0;
+  const loadingInterval = setInterval(() => {
+    puntos = (puntos + 1) % 4;
+    elements.confirmarBtn.innerText =
+      "Confirmando" + ".".repeat(puntos);
+  }, 500);
 
   try {
     const result = await confirmarAsistenciaGoogle(codigoActual, respuestas);
 
     // 🔒 CÓDIGO YA CONFIRMADO
     if (!result.ok && result.reason === "YA_CONFIRMADO") {
+      clearInterval(loadingInterval);
+      elements.confirmarBtn.innerText = textoOriginal;
       elements.mensaje.innerText =
         "⚠️ Este código ya fue confirmado anteriormente.";
       elements.resultadoDiv.classList.remove("hidden");
@@ -163,9 +175,13 @@ elements.confirmarBtn.addEventListener("click", async () => {
     }
 
     if (!result.ok) {
+      clearInterval(loadingInterval);
+      elements.confirmarBtn.innerText = textoOriginal;
       elements.mensaje.innerText = "❌ Error al guardar la información.";
       return;
     }
+
+    clearInterval(loadingInterval);
 
     elements.listaDiv.classList.add("hidden");
     elements.resultadoDiv.classList.remove("hidden");
@@ -184,7 +200,10 @@ elements.confirmarBtn.addEventListener("click", async () => {
     }
 
   } catch (error) {
+    clearInterval(loadingInterval);
     console.error("Error enviando a Google Sheets:", error);
+    elements.confirmarBtn.innerText = textoOriginal;
+    elements.confirmarBtn.disabled = false;
     elements.mensaje.innerText =
       "❌ Error de conexión. Intenta más tarde.";
   }
