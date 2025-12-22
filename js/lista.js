@@ -61,28 +61,28 @@ const invitados = {
   "DS713": ["Daniela Vazquez", "1 Acompañante"],
   "DS384": ["Paola Nuñez", "1 Acompañante"],
   "DS950": ["Sergio Garcia", "Vanessa Garcia"],
-  "DS526": ["Daniel Tovar", "1 Acompañante"]
+  "DS526": ["Daniel Tovar", "1 Acompañante"],
   // Lista de códigos Novio
-  "HP010": ["Enedelia Obregón"]
-  "HP019": ["Ma. Elena Martínez"]
-  "HP058": ["Alberto Garza", "Karina Pérez", "Alberto Garza", "Lilian Garza"]
-  "HP091": ["Alejandro Rodríguez", "Marlene Pérez", "Andree González"]
-  "HP115": ["Verónica Obregón", "Jaime Estrada"]
-  "HP163": ["Noé Cardenas", "1 Acompañante"]
-  "HP198": ["Héctor Obregón", "Xochitl Gomez"]
-  "HP221": ["Rosy Martínez", "1 Acompañante"]
-  "HP268": ["Paula Martínez", "1 Acompañante"]
-  "HP305": ["Reynol Villarreal", "Janeth"]
-  "HP329": ["Sergio Muñiz", "Ivette Escamilla"]
-  "HP358": ["Andrés Vazquez", "Katia Salas"]
-  "HP407": ["Gustavo Hernández", "Michelle Martínez"]
-  "HP446": ["Mauricio Garza", "Sra de Garza"]
-  "HP478": ["Aarón Ruiz", "Sandra Garcia"]
-  "HP522": ["Diego Oropeza", "1 Acompañante"]
-  "HP547": ["Luis Oropeza", "1 Acompañante"]
-  "HP632": ["Oscar Ramírez", "1 Acompañante"]
-  "HP671": ["Daniel Rodríguez", "Elizabeth Martínez"]
-  "HP799": ["Daniel Moreno", "Isa Lara"]
-  "HP888": ["Iván Fragoso", "Yisell Guerrero"]
-  "HP934": ["Félix Morado", "1 Acompañante"]
+  "HP010": ["Enedelia Obregón"],
+  "HP019": ["Ma. Elena Martínez"],
+  "HP058": ["Alberto Garza", "Karina Pérez", "Alberto Garza", "Lilian Garza"],
+  "HP091": ["Alejandro Rodríguez", "Marlene Pérez", "Andree González"],
+  "HP115": ["Verónica Obregón", "Jaime Estrada"],
+  "HP163": ["Noé Cardenas", "1 Acompañante"],
+  "HP198": ["Héctor Obregón", "Xochitl Gomez"],
+  "HP221": ["Rosy Martínez", "1 Acompañante"],
+  "HP268": ["Paula Martínez", "1 Acompañante"],
+  "HP305": ["Reynol Villarreal", "Janeth"],
+  "HP329": ["Sergio Muñiz", "Ivette Escamilla"],
+  "HP358": ["Andrés Vazquez", "Katia Salas"],
+  "HP407": ["Gustavo Hernández", "Michelle Martínez"],
+  "HP446": ["Mauricio Garza", "Sra de Garza"],
+  "HP478": ["Aarón Ruiz", "Sandra Garcia"],
+  "HP522": ["Diego Oropeza", "1 Acompañante"],
+  "HP547": ["Luis Oropeza", "1 Acompañante"],
+  "HP632": ["Oscar Ramírez", "1 Acompañante"],
+  "HP671": ["Daniel Rodríguez", "Elizabeth Martínez"],
+  "HP799": ["Daniel Moreno", "Isa Lara"],
+  "HP888": ["Iván Fragoso", "Yisell Guerrero"],
+  "HP934": ["Félix Morado", "1 Acompañante"],
 };
