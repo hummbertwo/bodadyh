@@ -208,4 +208,3 @@ elements.confirmarBtn.addEventListener("click", async () => {
       "❌ Error de conexión. Intenta más tarde.";
   }
 });
-
