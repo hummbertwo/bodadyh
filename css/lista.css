@@ -1,101 +1,44 @@
-/* ========================================
-   ESTILOS PARA PÁGINA DE CONFIRMACIONES
-======================================== */
+        .glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            min-height: 100vh;
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
 
-/* General */
-body {
-  font-family: 'Inter', sans-serif;
-  background: #f4f6f8;
-  margin: 0;
-  padding: 1rem;
-  color: #333;
-}
+        /* Estilos optimizados para móvil */
+        @media (max-width: 768px) {
+            .mobile-card-grid {
+                display: block;
+            }
+            .desktop-table-container {
+                display: none;
+            }
+            .stat-card {
+                padding: 1rem !important;
+            }
+            .stat-value {
+                font-size: 1.5rem !important;
+            }
+        }
 
-h1 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-  color: #1f2937;
-}
-
-/* Contenedor */
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* Tarjetas de confirmación */
-.card {
-  background: #fff;
-  padding: 1rem 1.2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  margin-bottom: 1rem;
-  transition: transform 0.2s, box-shadow 0.2s;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-}
-
-.card .info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.card .info span {
-  font-size: 0.95rem;
-  color: #555;
-}
-
-.card .status {
-  font-weight: 700;
-  color: #10b981; /* verde para confirmadas */
-}
-
-/* Botón recargar */
-#recargar {
-  display: block;
-  margin: 0 auto 1.5rem auto;
-  padding: 10px 20px;
-  font-size: 1rem;
-  background: #4f46e5;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-}
-
-#recargar:hover {
-  background: #4338ca;
-  transform: scale(1.05);
-}
-
-/* Animación al aparecer */
-.fade-in {
-  animation: fadeInUp 0.6s ease forwards;
-  opacity: 0;
-}
-
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsive */
-@media (max-width: 500px) {
-  .card {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .card .status {
-    margin-top: 8px;
-  }
-}
+        @media (min-width: 769px) {
+            .mobile-card-grid {
+                display: none;
+            }
+            .desktop-table-container {
+                display: block;
+            }
+        }

@@ -1,24 +1,109 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Confirmaciones</title>
-<link rel="stylesheet" href="css/lista.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Lista de Invitados</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="./css/lista.css">
 </head>
-<body>
+<body class="p-2 md:p-8">
 
-<div class="container">
-  <h1>Confirmaciones</h1>
-  <button id="recargar">Recargar Confirmaciones</button>
+    <!-- HTML (Estructura) -->
+    <div id="app" class="max-w-6xl mx-auto">
+        
+        <!-- Cabecera de Administración -->
+        <nav id="nav-admin" class="hidden flex flex-col md:flex-row justify-between items-center mb-6 md:mb-8 glass p-4 md:p-6 rounded-2xl shadow-sm border-b-4 border-indigo-500 gap-4">
+            <div class="text-center md:text-left">
+                <h1 class="text-xl md:text-2xl font-black text-gray-800 tracking-tight">
+                    <i class="fa-solid fa-gauge-high mr-2 text-indigo-600"></i>PANEL DE CONTROL
+                </h1>
+                <p class="text-xs md:text-sm text-gray-500 font-medium uppercase tracking-wider">Lista de Invitados</p>
+            </div>
+            <div class="w-full md:w-auto">
+                <button onclick="loadAdminData()" class="w-full flex items-center justify-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-xl text-sm font-bold hover:bg-indigo-700 transition shadow-lg shadow-indigo-200 active:scale-95">
+                    <i class="fa-solid fa-arrows-rotate" id="refresh-icon"></i> Actualizar Datos
+                </button>
+            </div>
+        </nav>
 
-  <div id="lista-confirmaciones">
-    <!-- Tarjetas se generarán aquí -->
-  </div>
-</div>
+        <!-- Formulario de Login -->
+        <div id="view-login" class="max-w-sm mx-auto glass p-6 md:p-8 rounded-3xl shadow-xl text-center mt-10 md:mt-20 border border-white">
+            <div class="w-16 h-16 md:w-20 md:h-20 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fa-solid fa-shield-halved text-2xl md:text-3xl text-indigo-600"></i>
+            </div>
+            <h2 class="text-xl font-bold mb-2 text-gray-800">Acceso Administrador</h2>
+            <p class="text-gray-500 text-sm mb-6 px-4">Introduce la clave para acceder al panel de control</p>
+            <input type="password" id="admin-pass-input" inputmode="numeric" class="w-full p-4 border rounded-xl mb-4 text-center text-lg tracking-widest focus:ring-2 focus:ring-indigo-500 outline-none" placeholder="••••••••">
+            <button onclick="checkAdmin()" class="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold hover:bg-indigo-700 transition-all transform active:scale-95 shadow-lg shadow-indigo-100">Entrar al Sistema</button>
+        </div>
 
-<script src="js/supabase-config.js"></script>
-<script src="js/lista-confirmaciones.js"></script>
+        <!-- Vista del Dashboard -->
+        <div id="view-admin" class="hidden space-y-4 md:space-y-6">
+            
+            <!-- Tarjetas de Resumen -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+                <div class="glass stat-card p-4 md:p-6 rounded-2xl shadow-sm border-l-4 border-gray-400">
+                    <p class="text-[10px] md:text-xs text-gray-500 uppercase font-bold tracking-wider mb-1">Total</p>
+                    <h3 id="stat-total" class="stat-value text-2xl md:text-4xl font-black text-gray-800">0</h3>
+                </div>
+                <div class="glass stat-card p-4 md:p-6 rounded-2xl shadow-sm border-l-4 border-green-500">
+                    <p class="text-[10px] md:text-xs text-green-600 uppercase font-bold tracking-wider mb-1">Confirmados</p>
+                    <h3 id="stat-si" class="stat-value text-2xl md:text-4xl font-black text-green-600">0</h3>
+                </div>
+                <div class="glass stat-card p-4 md:p-6 rounded-2xl shadow-sm border-l-4 border-red-500">
+                    <p class="text-[10px] md:text-xs text-red-600 uppercase font-bold tracking-wider mb-1">Declinados</p>
+                    <h3 id="stat-no" class="stat-value text-2xl md:text-4xl font-black text-red-600">0</h3>
+                </div>
+                <div class="glass stat-card p-4 md:p-6 rounded-2xl shadow-sm border-l-4 border-indigo-500">
+                    <p class="text-[10px] md:text-xs text-indigo-600 uppercase font-bold tracking-wider mb-1">Grupos</p>
+                    <h3 id="stat-grupos" class="stat-value text-2xl md:text-4xl font-black text-indigo-600">0</h3>
+                </div>
+            </div>
 
+            <!-- Sección de Listado -->
+            <div class="glass rounded-2xl shadow-sm overflow-hidden border border-white">
+                <div class="p-4 md:p-6 border-b flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white/50">
+                    <h3 class="font-bold text-lg text-gray-800">Detalle de Asistencia</h3>
+                    <div class="relative w-full md:w-64">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-gray-400"></i>
+                        <input type="text" id="search-input" oninput="filterTable()" placeholder="Buscar invitado..." class="w-full pl-10 pr-4 py-3 md:py-2 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-indigo-500 outline-none">
+                    </div>
+                </div>
+                
+                <!-- Vista Desktop: Tabla -->
+                <div class="desktop-table-container overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead class="bg-gray-50/50">
+                            <tr>
+                                <th class="px-6 py-4 text-xs font-black text-gray-400 uppercase tracking-widest">Código</th>
+                                <th class="px-6 py-4 text-xs font-black text-gray-400 uppercase tracking-widest">Nombre</th>
+                                <th class="px-6 py-4 text-xs font-black text-gray-400 uppercase tracking-widest text-center">Estado</th>
+                                <th class="px-6 py-4 text-xs font-black text-gray-400 uppercase tracking-widest">Registro</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body" class="divide-y divide-gray-100 bg-white/30">
+                            <!-- Inyectado por JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Vista Móvil: Cards (Vertical) -->
+                <div id="mobile-cards" class="mobile-card-grid divide-y divide-gray-100 bg-white/30">
+                    <!-- Inyectado por JS -->
+                </div>
+
+                <div id="no-data" class="hidden p-12 md:p-20 text-center">
+                    <i class="fa-solid fa-inbox text-5xl text-gray-200 mb-4"></i>
+                    <p class="text-gray-400 font-medium">No se encontraron registros</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notificaciones -->
+    <div id="toast" class="fixed bottom-5 left-5 right-5 md:left-auto md:right-5 md:w-auto transform translate-y-20 opacity-0 transition-all duration-300 p-4 rounded-xl shadow-2xl text-white font-bold z-50 flex items-center justify-center md:justify-start gap-3"></div>
+      <script src="./js/lista-confirmaciones.js"></script>
 </body>
 </html>
