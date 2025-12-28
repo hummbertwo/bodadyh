@@ -1,6 +1,6 @@
         // --- CONFIGURACIÓN ---
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzB3WEF6_3qwimCwIKkl_g2C6x97FRjPAHkHDMXJoAMklt_AbETL8Ls9pQ-PtpJXPMiEA/exec'; 
-        const ADMIN_PASS = 'admin123'; 
+        const ADMIN_PASS = '2017'; 
 
         let fullData = [];
 
