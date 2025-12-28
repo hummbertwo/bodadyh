@@ -39,7 +39,7 @@ const invitados = {
   "DS783": ["Mónica Martínez", "1 Acompañante"],
   "DS346": ["Sandra Sánchez", "1 Acompañante"],
   "DS905": ["Juvencio Puente", "Rosy Silva"],
-  "DS172": ["Marlene Sánchez"],
+  "DS172": ["Marlene Sánchez", "1 Acompañante"],
   "DS469": ["Javier Méndez", "Liliana Padilla"],
   "DS830": ["César Castellanos", "1 Acompañante"],
   "DS597": ["Mauricio Muñiz", "1 Acompañante"],
