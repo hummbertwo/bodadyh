@@ -18,10 +18,29 @@
             50% { opacity: .5; }
         }
 
-        /* Estilos optimizados para móvil */
+        /* Contenedores con Scroll con límites de altura específicos */
+        .scroll-container {
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 transparent;
+        }
+
+        .scroll-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        .scroll-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .scroll-container::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+
+        /* Móvil: altura para ~4 registros */
         @media (max-width: 768px) {
             .mobile-card-grid {
                 display: block;
+                max-height: 480px; /* Ajuste para aprox 4 registros verticales */
             }
             .desktop-table-container {
                 display: none;
@@ -34,11 +53,13 @@
             }
         }
 
+        /* Desktop: altura para ~7 registros */
         @media (min-width: 769px) {
             .mobile-card-grid {
                 display: none;
             }
             .desktop-table-container {
                 display: block;
+                max-height: 520px; /* Ajuste para aprox 7 filas */
             }
         }

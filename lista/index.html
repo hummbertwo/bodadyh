@@ -72,10 +72,10 @@
                     </div>
                 </div>
                 
-                <!-- Vista Desktop: Tabla -->
-                <div class="desktop-table-container overflow-x-auto">
-                    <table class="w-full text-left">
-                        <thead class="bg-gray-50/50">
+                <!-- Vista Desktop: Tabla con Scroll -->
+                <div class="desktop-table-container scroll-container">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="bg-gray-50/80 sticky top-0 z-10 backdrop-blur-sm">
                             <tr>
                                 <th class="px-6 py-4 text-xs font-black text-gray-400 uppercase tracking-widest">Código</th>
                                 <th class="px-6 py-4 text-xs font-black text-gray-400 uppercase tracking-widest">Nombre</th>
@@ -89,8 +89,8 @@
                     </table>
                 </div>
 
-                <!-- Vista Móvil: Cards (Vertical) -->
-                <div id="mobile-cards" class="mobile-card-grid divide-y divide-gray-100 bg-white/30">
+                <!-- Vista Móvil: Cards con Scroll -->
+                <div id="mobile-cards" class="mobile-card-grid scroll-container divide-y divide-gray-100 bg-white/30">
                     <!-- Inyectado por JS -->
                 </div>
 

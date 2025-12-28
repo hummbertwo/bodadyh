@@ -2,10 +2,8 @@
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzB3WEF6_3qwimCwIKkl_g2C6x97FRjPAHkHDMXJoAMklt_AbETL8Ls9pQ-PtpJXPMiEA/exec'; 
         const ADMIN_PASS = 'admin123'; 
 
-        // --- ESTADO GLOBAL ---
         let fullData = [];
 
-        // --- FUNCIONES DE INTERFAZ ---
         function notify(msg, type = 'success') {
             const toast = document.getElementById('toast');
             toast.innerHTML = type === 'success' 
@@ -28,7 +26,6 @@
             }
         }
 
-        // --- GESTIÓN DE DATOS ---
         async function loadAdminData() {
             if (!SCRIPT_URL || SCRIPT_URL === '') return;
 
@@ -131,7 +128,7 @@
                 `;
                 tbody.appendChild(tr);
 
-                // Mobile Card (Directo Vertical)
+                // Mobile Card
                 const card = document.createElement('div');
                 card.className = "p-5 border-b border-gray-100 bg-white/40 last:border-0";
                 card.innerHTML = `
