@@ -8,7 +8,7 @@ const invitados = {
   "DS432": ["Mireya González"],
   "DS930": ["Denisse Ruiz"],
   "DS375": ["Félix Ruiz", "Mayra González"],
-  "DS246": ["Fabián González", "Argelia Torres"],
+  "DS246": ["Fabián Ruiz", "Argelia Torres"],
   "DS801": ["Miguel Silva", "Ma. de la Luz Ruiz"],
   "DS593": ["Sergio Silva ", "Vanessa Rodríguez"],
   "DS127": ["Carlos Silva ", "1 Acompañante"],
