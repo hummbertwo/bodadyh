@@ -80,7 +80,7 @@ const invitados = {
   "HP446": ["Mauricio Garza", "Sra de Garza"],
   "HP478": ["Aarón Ruiz", "Sandra Garcia"],
   "HP522": ["Diego Oropeza", "1 Acompañante"],
-  "HP547": ["Luis Oropeza", "1 Acompañante"],
+  "HP547": ["Louis Oropeza", "1 Acompañante"],
   "HP632": ["Oscar Ramírez", "1 Acompañante"],
   "HP671": ["Daniel Rodríguez", "Elizabeth Martínez"],
   "HP799": ["Daniel Moreno", "Isa Lara"],
