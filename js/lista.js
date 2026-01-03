@@ -70,7 +70,7 @@ const invitados = {
   "HP115": ["Verónica Obregón", "Jaime Estrada"],
   "HP163": ["Noé Cardenas", "1 Acompañante"],
   "HP198": ["Héctor Obregón", "Xochitl Gomez"],
-  "HP221": ["Rosy Martínez", "1 Acompañante"],
+  "HP221": ["Gerardo Rangel", "Rosy Martínez"],
   "HP257": ["Enrique Obregón", "Francis Hidalgo"],
   "HP268": ["Paula Martínez", "1 Acompañante"],
   "HP305": ["Reynol Villarreal", "Janeth Cruz"],
