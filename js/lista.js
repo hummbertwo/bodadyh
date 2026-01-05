@@ -63,6 +63,7 @@ const invitados = {
   "DS950": ["Sergio Garcia", "Vanessa Garcia"],
   "DS526": ["Daniel Tovar", "1 Acompañante"],
   "DS025": ["Nataly García"],
+  "DS050": ["Edith Valadez", "1 Acompañante"],
   // Lista de códigos Novio
   "HP010": ["Enedelia Barajas"],
   "HP019": ["Ma. Elena Martínez"],
