@@ -88,4 +88,5 @@ const invitados = {
   "HP799": ["Daniel Moreno", "Isa Lara"],
   "HP888": ["Iván Fragoso", "Yisell Guerrero"],
   "HP934": ["Félix Morado", "1 Acompañante"],
+  "HP853": ["Myrna García", "José Garza"],
 };
