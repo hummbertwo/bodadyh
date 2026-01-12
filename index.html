@@ -290,13 +290,13 @@
   </section>
  <!-- =========================
    SECCIÓN FORMULARIO DE ASISTENCIA
-============================== -->
+
   <section id="confirmacion" class="form">
     <h2 calss="frase2">Por favor confirma tu asistencia<br>antes del día 10 de enero del 2026</h2>
    <div class="contenedor">
     <h2 class="form-title">Confirmación de Asistencia</h2>
 
-    <!-- Código -->
+    
     <div id="codigo-div">
       <input type="text" id="codigo" class="input" placeholder=" " />
       <div class="cut"></div>
@@ -304,19 +304,40 @@
       <button id="verificar-btn" class="submit">Verificar Código</button>
     </div>
 
-    <!-- Lista de invitados -->
+  
     <div id="lista-div" class="hidden">
       <h3>Selecciona asistencia</h3>
       <div id="lista-invitados"></div>
       <button id="confirmar-btn" class="submit">Confirmar</button>
     </div>
 
-    <!-- Resultado -->
+   
     <div id="resultado-div" class="resultado hidden">
       <h3 id="mensaje"></h3>
       <div id="animacion" class="animacion"></div>
     </div>
   </div>
+</section>
+ ============================== -->
+
+<!-- =========================
+   SECCIÓN ASISTENCIA CERRADA
+============================== -->
+<section id="confirmacion" class="form">
+    <div class="contenedor-cerrado">
+        <div class="icono-cerrado">✨</div>
+        <h2 class="titulo-cerrado">Lista de asistencia cerrada</h2>
+        
+        <div class="separador"></div>
+        
+        <p class="mensaje-cerrado">
+            Si no confirmaste tu asistencia en el tiempo establecido, 
+            entendemos que no te será posible acompañarnos.
+        </p>
+        
+        <div class="separador"></div>
+        
+    </div>
 </section>
 
  <!-- =========================
